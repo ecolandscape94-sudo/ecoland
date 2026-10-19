@@ -1,6 +1,6 @@
 # Architecture and implementation checklist
 
-The corrected stack is Next.js App Router + strict TypeScript + Tailwind CSS, Google Sheets as the database, Cloudinary as image storage, Auth.js Google sign-in, SMTP notifications, and Vercel hosting. There is no PostgreSQL or Prisma dependency.
+The corrected stack is Next.js App Router + strict TypeScript + Tailwind CSS, Google Sheets as the database, Cloudinary as image storage, Auth.js Google sign-in, Resend notifications, and Vercel hosting. There is no PostgreSQL or Prisma dependency.
 
 ## Structure
 - Public: `/`, `/about`, `/services`, `/services/[slug]`, `/projects`, `/projects/[slug]`, `/nursery`, `/contact`, `/privacy`.
