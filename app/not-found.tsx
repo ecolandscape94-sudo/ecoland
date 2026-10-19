@@ -1,0 +1,2 @@
+import { PageIntro, ButtonLink } from '@/components/ui';
+export default function NotFound(){return <><PageIntro eyebrow="A little off the garden path" title={<>Let’s find<br/><em>your way back.</em></>} description="This page isn’t available. Explore our services or return to the homepage."/><div className="container" style={{textAlign:'center',paddingBottom:100}}><ButtonLink href="/">Back to the garden</ButtonLink></div></>;}

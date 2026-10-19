@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+const base=process.argv[2]||'http://localhost:3100';
+if(!['localhost','127.0.0.1'].includes(new URL(base).hostname))throw new Error('Smoke tests run against a local preview only.');
+const paths=['/','/about','/services','/services/landscaping-garden-design','/services/landscape-installation-beautification','/services/garden-maintenance','/services/plant-seedling-supply','/services/tree-planting-environmental-greening','/projects','/nursery','/contact','/privacy','/admin/login','/robots.txt','/sitemap.xml','/icon.svg','/opengraph-image'];
+for(const path of paths){const response=await fetch(base+path,{signal:AbortSignal.timeout(60000)});assert.equal(response.status,200,path);if(response.headers.get('content-type')?.includes('text/html')){const html=await response.text();assert.match(html,/<h1[\s>]/,`${path} needs a heading`);assert.match(html,/<title>/,`${path} needs a title`);}console.log(`PASS ${path}`);}
+for(const path of ['/api/admin/projects','/api/admin/plants','/api/admin/inquiries','/api/admin/settings']){const response=await fetch(base+path);assert.equal(response.status,401,`${path} must require sign-in`);console.log(`PASS unauthorized ${path}`);}
+for(const path of ['/api/admin/projects','/api/admin/upload']){const response=await fetch(base+path,{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{}'});assert.equal(response.status,401,path);console.log(`PASS protected POST ${path}`);}
+const attachment=await fetch(base+'/api/admin/attachment?id=anything&index=0');assert.equal(attachment.status,403);console.log('PASS private attachments reject anonymous access');
+const crossOrigin=await fetch(base+'/api/inquiries',{method:'POST',headers:{Origin:'https://attacker.example'},body:'invalid'});assert.equal(crossOrigin.status,403);console.log('PASS cross-origin inquiry rejected');
+const form=new FormData();form.set('payload',JSON.stringify({name:'x',email:'invalid',consent:false}));const invalid=await fetch(base+'/api/inquiries',{method:'POST',headers:{Origin:base},body:form});assert.equal(invalid.status,400);console.log('PASS invalid inquiry rejected');
+const oversized=await fetch(base+'/api/inquiries',{method:'POST',headers:{Origin:base},body:Buffer.alloc(4*1024*1024+1)});assert.equal(oversized.status,413);console.log('PASS oversized inquiry rejected');
+console.log('All 27 local HTTP smoke checks passed. No valid inquiries were submitted.');

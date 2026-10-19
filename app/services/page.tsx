@@ -1,0 +1,9 @@
+import { getContent } from '@/lib/content';
+import { PageIntro, Photo, CTA, Breadcrumb } from '@/components/ui';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+export const metadata = { title: 'Landscaping & gardening services in Rwanda', description: 'Soft landscaping, greening and beautification, plant and seedling supply, garden maintenance and tree planting in Rwanda.', alternates: { canonical: '/services' } };
+export default async function Services() {
+  const { services } = await getContent();
+  return <><Breadcrumb items={[{label:'Services'}]}/><PageIntro eyebrow="One company. From planting to care." title={<>Beautiful beginnings.<br/><em>Thoughtful care.</em></>} description="Our expertise connects the materials a landscape needs with the work that brings it to life — and the maintenance that helps it flourish."/><div className="service-collection container">{services.map((s,i) => <article className="service-chapter" key={s.id}><Link className="service-chapter-image" href={`/services/${s.slug}`}><Photo src={s.image} alt={s.imagery === 'company' ? s.title : `${s.title}; illustrative service photography`} priority={i===0}/><span>{s.imagery === 'company' ? 'Eco Landscapes & Gardening Ltd' : 'Illustrative service photography'}</span></Link><div className="service-chapter-copy"><span className="eyebrow">0{i+1} / Our expertise</span><h2>{s.title}</h2><p>{s.description}</p><ul>{s.benefits.map(b=><li key={b}>{b}</li>)}</ul><Link href={`/services/${s.slug}`} className="text-link">Explore this service <ArrowUpRight size={18}/></Link></div></article>)}</div><CTA/></>;
+}

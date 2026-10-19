@@ -1,0 +1,11 @@
+# Evening lighting revision
+
+Generated using the built-in image tool on 16 October 2026, then saved as public/images/service-concepts/lighting-v2.webp and connected to the homepage lighting card. Earlier lighting.webp retained. This is an AI-created service illustration.
+
+## Final prompt
+
+Use case: precise-object-edit. Edit the referenced service illustration for the Eco Landscapes homepage.
+Primary request: revise the garden to feature an elegant PAVED WALKING PATH THROUGH THE MIDDLE OF THE GARDEN, with fancy warm-white flexible snake/rope lighting neatly following BOTH edges of that path. Make the time clearly evening blue hour just after sunset.
+Composition: eye-level view looking straight along a gently S-curving central path that starts wide at the bottom centre and leads into the mid-background, garden lawns on BOTH sides, with layered tropical flower and shrub beds farther to each side. Path must be usable, approximately 1.2 metres wide, paved with beautifully fitted irregular natural grey-tan flagstones. Two continuous slender warm-white 2700K LED rope lights physically attached to low neat edging along the two sides of the path; graceful curves, modest luxurious warm glow spilling realistically onto the stones and grass. The snake lights refer to flexible rope lights, not animals, worms, neon sculptures or dangling wires.
+Preserve: highly realistic Rwandan Kigali residential garden setting, exposed warm brick and cream plaster boundary walls, lush lawns, crotons, palms, actual tactile stone and leaf detail, hint of green hills and distant homes. Keep achievable local landscape workmanship, natural plants and plausible construction. No people.
+Lighting: dusky deep blue evening sky, enough subtle ambient twilight to distinguish the green garden, warm lighting as the main visual focus, not daylight and not pitch-black. Professional architectural landscape photography; realistic exposure, consistent perspective and shadow/light falloff. Landscape 3:2 full-bleed composition suited to a website card. No lettering, logos, watermarks, borders, collages. Change the path placement and evening lighting as requested; retain the quality and garden character of the reference.

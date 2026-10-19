@@ -1,0 +1,5 @@
+import { redirect } from 'next/navigation';
+import { Sprout } from 'lucide-react';
+import { signIn, staffUser } from '@/auth';
+export const metadata={title:'Staff sign-in',robots:{index:false,follow:false}};
+export default async function Login({searchParams}:{searchParams:Promise<{error?:string}>}){const configured=!!(process.env.AUTH_SECRET&&process.env.AUTH_GOOGLE_ID&&process.env.AUTH_GOOGLE_SECRET);if(configured&&await staffUser())redirect('/admin');const {error}=await searchParams;return <section className="admin-login container"><Sprout size={36} strokeWidth={1.2}/><h1>Welcome <em>back.</em></h1><p>Sign in with your approved company Google account to manage website content and inquiries.</p>{error&&<p className="form-error" role="alert">Sign-in could not be completed. Use an approved, verified Google account and try again.</p>}{configured?<form action={async()=>{'use server';await signIn('google',{redirectTo:'/admin'});}}><button className="button" type="submit">Continue with Google ↗</button></form>:<p className="admin-message">Staff sign-in is waiting for Google OAuth and administrator configuration. See the project setup guide.</p>}</section>;}

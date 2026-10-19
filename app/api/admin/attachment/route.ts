@@ -1,0 +1,6 @@
+import { staffUser } from '@/auth';
+import { listRecords } from '@/lib/sheets';
+import type { Inquiry } from '@/lib/models';
+import { privateImageUrl } from '@/lib/cloudinary';
+export const runtime='nodejs';
+export async function GET(request:Request){const user=await staffUser();if(!user||user.role!=='admin')return Response.json({error:'Administrator access required.'},{status:403});const url=new URL(request.url);try{const inquiry=(await listRecords('inquiries')).find(r=>r.id===url.searchParams.get('id')) as Inquiry|undefined;const index=Number(url.searchParams.get('index'));const attachment=Number.isInteger(index)&&index>=0?inquiry?.attachments[index]:undefined;if(!attachment)return Response.json({error:'Attachment not found.'},{status:404});const signed=privateImageUrl(attachment.publicId,attachment.format);const image=await fetch(signed,{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!image.ok)throw new Error('Image unavailable');return new Response(image.body,{headers:{'Content-Type':image.headers.get('content-type')||'application/octet-stream','Cache-Control':'private, no-store','Content-Disposition':'inline'}});}catch{return Response.json({error:'Unable to load the attachment.'},{status:503});}}

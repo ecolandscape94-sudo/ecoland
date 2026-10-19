@@ -1,0 +1,6 @@
+import { staffUser } from '@/auth';
+import { sameOrigin, rateLimit, rateKey } from '@/lib/security';
+import { uploadImage } from '@/lib/cloudinary';
+import { audit } from '@/lib/sheets';
+export const runtime='nodejs';export const maxDuration=60;
+export async function POST(request:Request){const user=await staffUser();if(!user)return Response.json({error:'Sign in is required.'},{status:401});if(!sameOrigin(request))return Response.json({error:'Request not allowed.'},{status:403});if(Number(request.headers.get('content-length')||0)>4.2*1024*1024)return Response.json({error:'Photo must be no larger than 4 MB.'},{status:413});try{if(!await rateLimit(rateKey(request,`upload:${user.email}`),30,600))return Response.json({error:'Too many uploads. Please wait.'},{status:429});const form=await request.formData();const file=form.get('file');if(!(file instanceof File))return Response.json({error:'Select a photograph.'},{status:400});await audit(user.email,'media:upload-attempt','new-photo');const media=await uploadImage(file);return Response.json(media);}catch{return Response.json({error:'Upload failed. Use a JPG, PNG or WebP image up to 4 MB and check the Cloudinary configuration.'},{status:400});}}

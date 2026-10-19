@@ -1,0 +1,214 @@
+/* Eco Landscapes: the company profile and a quieter botanical identity. */
+:root { --green: #184a35; --deep: #113826; --ink: #233d30; --muted: #647167; --pale: #f4f7f1; }
+html { scroll-padding-top: 145px; }
+body { font-size: 15px; }
+.site-header { background: #fff; }
+.welcome-hero a:focus-visible { outline-color: #fff; }
+.container { max-width: 1320px; width: calc(100% - 112px); }
+.contact-ribbon { color: #526356; background: #f4f7f1; border-bottom: 1px solid #e5ebe1; }
+.contact-ribbon>.container { display: flex; align-items: center; justify-content: space-between; min-height: 31px; font-size: 10px; }
+.contact-ribbon>.container>span>span { margin-inline: 10px; color: #92a28e; }
+.contact-ribbon>.container>div { display: flex; gap: 28px; }
+.contact-ribbon a { display: inline-flex; align-items: center; gap: 7px; }
+.header-inner { height: 91px; gap: 30px; }
+.brand { gap: 11px; flex-shrink: 0; }
+.brand-emblem { width: 94px; height: 51px; overflow: hidden; position: relative; display: block; flex-shrink: 0; }
+.brand-emblem img { height: 51px; width: 290px; max-width: none; position: absolute; top: 0; left: 0; mix-blend-mode: multiply; filter: brightness(1.05) contrast(1.08); }
+.brand-wordmark strong { font-size: 30px; font-weight: 500; letter-spacing: -.035em; white-space: nowrap; }
+.brand-wordmark small { margin-top: 6px; font-size: 8px; letter-spacing: .22em; }
+.desktop-nav { font-size: 12px; gap: 28px; }
+.header-cta { background: var(--green); color: white; border: 1px solid var(--green); padding: 15px 20px; gap: 18px; font-size: 11px; border-radius: 3px; }
+.header-cta:hover { background: #286043; }
+.button { border-radius: 3px; font-size: 12px; padding: 18px 24px; gap: 25px; }
+.text-link { font-size: 13px; padding-bottom: 10px; }
+.eyebrow { font-size: 10px; letter-spacing: .16em; }
+
+.welcome-hero { height: min(780px,calc(100svh - 122px)); min-height: 660px; position: relative; overflow: hidden; background: #183d2a; color: white; }
+.welcome-background { position: absolute; inset: 0; }
+.welcome-background img { object-position: center 48%; }
+.welcome-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(5,31,20,.78) 0%,rgba(8,35,23,.47) 47%,rgba(9,31,18,.15) 100%),linear-gradient(0deg,rgba(7,28,18,.45),transparent 30%); }
+.welcome-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-block: 70px 116px; }
+.welcome-eyebrow { display: flex; align-items: center; gap: 15px; text-transform: uppercase; font-size: 12px; letter-spacing: .27em; color: #e4eddc; margin-bottom: 26px; }
+.welcome-eyebrow>span { width: 32px; height: 1px; background: #d9e7ce; }
+.welcome-content h1 { font-size: clamp(65px,7.1vw,106px); line-height: 1.02; letter-spacing: -.03em; max-width: 1040px; color: white; text-wrap: balance; }
+.welcome-content h1>span,.welcome-content h1>em { display: block; }
+.welcome-content h1 em { color: #dbe9cd; font-weight: 400; }
+.welcome-description { font-size: 15px; color: #edf1e9; max-width: 430px; line-height: 1.9; margin-top: 28px; }
+.welcome-actions { display: flex; align-items: center; gap: 17px; margin-top: 34px; }
+.hero-outline { border: 1px solid #ffffff70; border-radius: 3px; display: inline-flex; align-items: center; gap: 26px; padding: 18px 24px; font-size: 12px; transition: background .2s; }
+.hero-outline:hover { background: #ffffff12; }
+.welcome-side-note { position: absolute; right: 32px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; display: flex; gap: 30px; font-size: 9px; letter-spacing: .22em; color: #ecf2e6; }
+.welcome-bottom { position: absolute; bottom: 29px; inset-inline: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #e6edde; }
+.welcome-bottom>a { display: inline-flex; gap: 13px; align-items: center; }
+.scroll-circle { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #ffffff50; }
+.welcome-bottom>span { font-size: 9px; color: #d1decb; }
+.roots-band { border-bottom: 1px solid #dfe7dc; background: #f7f9f5; }
+.roots-band>.container { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 82px; }
+.roots-band span,.roots-band a { display: inline-flex; align-items: center; gap: 11px; font-size: 11px; }
+.roots-band a { border-left: 1px solid #d1ddcd; padding-left: 28px; }
+.roots-band svg { color: #6a8a65; }
+.home-introduction { padding-block: 115px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 100px; }
+.introduction-heading h2 { margin-top: 24px; font-size: clamp(48px,4.7vw,70px); }
+.signature { margin-top: 36px; padding-left: 17px; border-left: 2px solid #9db695; }
+.signature span { display: block; }
+.signature span:first-child { font-family: var(--font-serif),Georgia,serif; font-size: 25px; font-style: italic; }
+.signature span:last-child { font-size: 10px; color: var(--muted); margin-top: 5px; }
+.introduction-copy { padding-top: 10px; }
+.introduction-copy p { color: var(--muted); margin-bottom: 20px; font-size: 13px; }
+.introduction-copy .lead-copy { font-size: 18px; line-height: 1.7; color: var(--ink); }
+.introduction-copy .text-link { margin-top: 10px; }
+.home-services { background: #f4f7f1; padding-block: 92px; }
+.home-services .section-heading { margin-bottom: 45px; }
+.service-editorial { display: grid; grid-template-columns: .95fr 1.1fr; gap: 72px; align-items: stretch; }
+.service-feature { position: relative; min-height: 590px; display: block; border-radius: 4px; overflow: hidden; background: #27452e; }
+.service-feature>.photo { position: absolute; inset: 0; }
+.service-feature>.photo img { object-position: 45% center; }
+.service-feature-shade { position: absolute; inset: 0; background: linear-gradient(0deg,rgba(9,32,19,.84),rgba(11,40,25,.08) 75%); }
+.service-feature-copy { position: absolute; left: 35px; right: 35px; bottom: 59px; color: white; }
+.service-feature-copy .eyebrow { font-size: 9px; color: #e2eadc; }
+.service-feature-copy h3 { font-family: var(--font-serif),Georgia,serif; font-size: 63px; line-height: 1.02; font-weight: 400; letter-spacing: -.03em; margin-block: 20px; }
+.service-feature-copy h3 em { color: #d5e4c5; }
+.service-feature-link { display: flex; gap: 25px; justify-content: space-between; border-top: 1px solid #ffffff50; padding-top: 19px; font-size: 12px; }
+.service-photo-note { position: absolute; bottom: 24px; left: 35px; color: #d4dfd0; font-size: 8px; }
+.expertise-list { display: flex; flex-direction: column; justify-content: center; }
+.expertise-row { display: grid; grid-template-columns: 50px 1fr 24px; gap: 17px; align-items: center; padding-block: 26px; border-top: 1px solid #d2dece; }
+.expertise-icon { height: 45px; width: 45px; border: 1px solid #c6d7c1; border-radius: 50%; display: grid; place-items: center; color: #5a7b50; }
+.expertise-row h3 { font-family: var(--font-serif),Georgia,serif; font-size: 31px; line-height: 1.1; font-weight: 500; }
+.expertise-row p { color: var(--muted); font-size: 11px; margin-top: 9px; }
+.expertise-row>svg { transition: transform .2s; }
+.expertise-row:hover>svg { transform: translate(3px,-3px); }
+.expertise-list>.text-link { align-self: flex-start; margin-top: 20px; }
+.home-track-record { padding-block: 110px; }
+.track-record-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 90px; align-items: end; margin-bottom: 44px; }
+.track-record-heading h2 { margin-top: 24px; }
+.track-record-heading>p { font-size: 13px; color: var(--muted); max-width: 380px; margin-left: auto; }
+.home-reference-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 65px; }
+.home-reference { display: flex; gap: 20px; align-items: center; padding-block: 27px; border-top: 1px solid var(--line); }
+.home-reference>.reference-index { font-size: 10px; color: #779074; align-self: flex-start; margin-top: 6px; }
+.home-reference>div>span { display: block; font-size: 9px; color: var(--muted); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 9px; }
+.home-reference h3 { font-family: var(--font-serif),Georgia,serif; font-size: 31px; font-weight: 500; line-height: 1.1; }
+.home-reference>svg { margin-left: auto; flex-shrink: 0; color: #6b8765; }
+.track-record-footer { display: flex; justify-content: space-between; align-items: center; gap: 35px; border-top: 1px solid var(--line); padding-top: 28px; }
+.track-record-footer>span { max-width: 480px; font-size: 10px; line-height: 1.7; color: var(--muted); }
+.nursery-journal { background: #143d2b; color: white; position: relative; overflow: hidden; }
+.nursery-journal-grid { padding-block: 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; position: relative; z-index: 1; align-items: center; }
+.nursery-journal-image { position: relative; }
+.nursery-journal-image>.photo { height: 615px; border-radius: 180px 180px 3px 3px; }
+.nursery-journal-image>span { position: absolute; bottom: 20px; left: 22px; font-size: 9px; color: #f1f7ea; text-shadow: 0 1px 6px #153822; }
+.nursery-journal-copy { padding-block: 15px; }
+.nursery-journal-copy h2 { margin-top: 25px; font-size: 68px; }
+.nursery-journal-copy h2 em { color: #d0e0bb; }
+.nursery-journal-copy>p:not(.eyebrow) { color: #cbd7c9; max-width: 445px; font-size: 13px; margin-block: 25px; }
+.nursery-types { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #94b58440; margin-bottom: 30px; }
+.nursery-types>span { border-bottom: 1px solid #94b58440; font-size: 11px; padding-block: 14px; color: #e0ead9; }
+.nursery-journal-copy>.nursery-confirmation { font-size: 9px!important; margin-bottom: 0!important; }
+.botanical-art { color: currentColor; pointer-events: none; }
+.nursery-journal>.botanical-art { position: absolute; right: -160px; bottom: -60px; width: 460px; color: #7da267; opacity: .15; transform: rotate(-20deg); }
+.home-philosophy { padding-block: 105px; display: grid; grid-template-columns: 1.5fr .8fr; gap: 110px; align-items: center; border-bottom: 1px solid var(--line); }
+.philosophy-quote h2 { margin-top: 25px; font-size: 60px; }
+.philosophy-detail>svg { color: #769a68; margin-bottom: 20px; }
+.philosophy-detail p { font-size: 13px; color: var(--muted); margin-bottom: 25px; }
+.home-process { padding-block: 90px 110px; }
+.process-number { font-size: 48px; }
+.process-grid h3 { font-size: 17px; }
+.process-grid p { font-size: 13px; }
+.cta { background: #f0f5eb; padding: 49px 48px; border: 1px solid #e0e8db; gap: 30px; border-radius: 3px; }
+.cta h2 { font-size: 46px; }
+.cta .button.light { background: var(--green); color: white; border-color: var(--green); }
+.cta .button.light:hover { background: #2a6242; }
+
+.footer { background: #0e3021; color: #edf1e8; border-top: none; }
+.footer-grid { grid-template-columns: 1.55fr .8fr 1.25fr; padding-block: 76px 62px; gap: 80px; }
+.footer-brand .brand { margin-bottom: 23px; }
+.brand-footer .brand-emblem { display: none; }
+.brand-footer .brand-wordmark strong { font-size: 33px; color: white; }
+.brand-footer .brand-wordmark small { color: #baccb2; }
+.footer-brand>p { color: #bacbbb!important; font-size: 12px!important; max-width: 310px; margin-top: 12px; }
+.footer h3 { font-size: 10px; text-transform: uppercase; letter-spacing: .13em; color: #a5c298; }
+.footer-grid>div>a { font-size: 12px; color: #d8e3d2; margin-bottom: 17px; line-height: 1.7; }
+.footer-grid>div>a:hover { color: white; }
+.footer-grid>div>p { color: #b8cbb6; font-size: 12px; }
+.footer-contact-address { max-width: 240px; }
+.footer-grid .footer-phone { font-family: var(--font-serif),Georgia,serif; font-size: 28px; color: white; margin-bottom: 15px; }
+.footer-bottom { border-top: 1px solid #aac79830; color: #aac0a8; font-size: 9px; padding-block: 26px; }
+.footer-bottom a:hover { color: white; }
+.footer-tag { color: #c6d9ba; font-family: var(--font-serif),Georgia,serif; font-size: 17px; font-style: italic; }
+
+.about-opening { padding-block: 58px 70px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 70px; align-items: center; }
+.about-opening h1 { font-size: clamp(58px,5.8vw,86px); margin-block: 26px; }
+.about-opening-copy>p:last-of-type { color: var(--muted); font-size: 14px; max-width: 440px; }
+.about-opening-copy .text-link { margin-top: 28px; }
+.about-opening-image .photo { height: 510px; border-radius: 180px 3px 3px 3px; }
+.about-dates { display: flex; gap: 40px; margin-block: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+.about-dates strong,.about-dates span { display: block; }
+.about-dates strong { font-family: var(--font-serif),Georgia,serif; font-size: 31px; font-weight: 500; }
+.about-dates span { font-size: 10px; color: var(--muted); margin-top: 5px; }
+.company-story { padding-block: 60px 90px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 110px; }
+.company-story h2 { font-size: 52px; margin-top: 24px; }
+.company-story-copy p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+.company-story-copy p:first-child { font-size: 17px; color: var(--ink); }
+.founder-strip { background: var(--pale); padding: 28px; display: flex; align-items: center; gap: 22px; border-radius: 3px; margin-top: 30px; }
+.founder-monogram { width: 67px; height: 67px; border-radius: 50%; border: 1px solid #c4d4bd; display: grid; place-items: center; font-family: var(--font-serif),Georgia,serif; font-size: 30px; color: #63845a; flex-shrink: 0; }
+.founder-strip h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+.founder-strip p { font-size: 11px!important; margin: 0!important; }
+.company-purpose { background: var(--deep); color: white; padding-block: 80px; position: relative; overflow: hidden; }
+.company-purpose-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 100px; position: relative; z-index: 1; }
+.company-purpose h2 { font-size: 47px; margin-block: 24px; }
+.company-purpose h2 em { color: #c4d6ae; }
+.company-purpose p:not(.eyebrow) { color: #d1dfc8; font-size: 15px; line-height: 1.9; max-width: 500px; }
+.company-purpose>.botanical-art { position: absolute; right: -160px; top: -190px; width: 520px; opacity: .12; }
+.company-nursery { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; padding-block: 100px; }
+.company-nursery>.photo { height: 490px; border-radius: 3px 140px 3px 3px; }
+.company-nursery h2 { margin-top: 25px; font-size: 53px; }
+.company-nursery p:not(.eyebrow) { color: var(--muted); font-size: 14px; margin-block: 24px; }
+.company-nursery .text-link { margin-top: 5px; }
+
+.profile-directory { padding-bottom: 80px; }
+.directory-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 90px; align-items: end; padding-top: 35px; margin-bottom: 38px; border-top: 1px solid var(--line); }
+.directory-heading h2 { font-size: 47px; margin-top: 20px; }
+.directory-heading>p { font-size: 12px; color: var(--muted); max-width: 380px; justify-self: end; }
+.profile-directory .filters { margin-bottom: 18px; }
+.directory-count { font-size: 10px; color: var(--muted); margin-bottom: 25px; }
+.reference-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0 38px; }
+.reference-item { border-top: 1px solid #d5e0d0; padding-block: 25px 28px; }
+.reference-category { font-size: 9px; color: #61795a; letter-spacing: .12em; text-transform: uppercase; }
+.reference-item h3 { font-family: var(--font-serif),Georgia,serif; font-weight: 500; font-size: 29px; line-height: 1.15; min-height: 67px; margin-block: 13px; }
+.reference-item a { display: flex; align-items: center; gap: 16px; font-size: 10px; color: var(--muted); width: fit-content; }
+.reference-item a:hover { color: var(--green); }
+.directory-note { font-size: 10px; line-height: 1.8; color: var(--muted); max-width: 660px; margin-top: 22px; }
+.project-stories-note { padding: 32px; border: 1px solid var(--line); background: var(--pale); display: flex; justify-content: space-between; gap: 30px; align-items: center; margin-bottom: 85px; }
+.project-stories-note h2 { font-size: 33px; margin-bottom: 10px; }
+.project-stories-note p { font-size: 12px; color: var(--muted); max-width: 580px; }
+.nursery-profile-note { display: grid; grid-template-columns: .7fr 1.2fr; gap: 70px; padding: 40px; background: var(--pale); margin-block: 40px 45px; border-left: 2px solid #8dad7e; }
+.nursery-profile-note h2 { font-size: 37px; }
+.nursery-profile-note p { font-size: 13px; color: var(--muted); }
+.contact-location-note { border-left: 2px solid #91ac7e; padding: 15px 20px; background: var(--pale); font-size: 12px!important; margin-top: 30px; }
+.page-intro { max-width: 1050px; }
+.page-intro h1 { text-wrap: balance; }
+.page-intro>p:last-child { font-size: 14px; }
+.service-card .eyebrow { font-size: 9px; }
+.field { font-size: 12px; }
+.service-collection { padding-bottom: 100px; }
+.service-chapter { display: grid; grid-template-columns: .95fr 1.15fr; gap: 85px; align-items: center; padding-block: 44px 55px; border-top: 1px solid var(--line); }
+.service-chapter:nth-child(even) { grid-template-columns: 1.15fr .95fr; }
+.service-chapter:nth-child(even)>.service-chapter-image { order: 2; }
+.service-chapter-image { position: relative; display: block; }
+.service-chapter-image .photo { height: 400px; border-radius: 3px; }
+.service-chapter:first-child .photo { border-radius: 120px 3px 3px 3px; }
+.service-chapter-image>span { position: absolute; bottom: 16px; left: 18px; color: white; font-size: 8px; text-shadow: 0 1px 7px #122f20; }
+.service-chapter-copy h2 { font-size: 47px; margin-block: 22px; }
+.service-chapter-copy>p { font-size: 13px; color: var(--muted); }
+.service-chapter-copy ul { list-style: none; padding: 0; margin-block: 23px; }
+.service-chapter-copy li { font-size: 12px; padding-block: 7px; display: flex; align-items: baseline; gap: 13px; }
+.service-chapter-copy li:before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #87a17b; flex-shrink: 0; }
+.service-chapter-copy>.text-link { margin-top: 8px; }
+@media(max-width:960px) { .service-chapter { gap: 45px; }.service-chapter-copy h2 { font-size: 39px; }.service-chapter-image .photo { height: 410px; } }
+@media(max-width:700px) { .service-chapter,.service-chapter:nth-child(even) { grid-template-columns: 1fr; gap: 28px; padding-block: 35px 45px; }.service-chapter:nth-child(even)>.service-chapter-image { order: 0; }.service-chapter-image .photo { height: 350px; }.service-chapter-copy h2 { font-size: 42px; }.service-collection { padding-bottom: 55px; } }
+@media(max-width:480px) { .service-chapter-image .photo { height: 300px; }.service-chapter-copy h2 { font-size: 39px; } }
+
+@media (min-width:1500px) { .welcome-content h1 { font-size: 112px; }.welcome-content { padding-bottom: 120px; } }
+@media (max-width:1200px) { .container { width: calc(100% - 72px); }.brand-wordmark strong { font-size: 26px; }.brand-emblem { width: 78px; height: 44px; }.brand-emblem img { width: 249px; height: 44px; }.desktop-nav { gap: 19px; font-size: 11px; }.header-cta { padding: 13px 16px; font-size: 10px; gap: 12px; }.header-inner { gap: 20px; }.home-introduction,.service-editorial,.track-record-heading,.nursery-journal-grid,.home-philosophy,.company-story,.company-purpose-grid { gap: 60px; }.welcome-content h1 { font-size: 88px; }.welcome-side-note { right: 20px; }.roots-band>.container { gap: 16px; }.roots-band span,.roots-band a { font-size: 10px; }.nursery-journal-copy h2 { font-size: 60px; }.nursery-journal-image>.photo { height: 580px; }.footer-grid { gap: 45px; } }
+@media (max-width:960px) { .desktop-nav { display: none; }.menu-button { display: block; }.header-cta { margin-left: auto; }.welcome-content h1 { font-size: 84px; max-width: 800px; }.welcome-hero { min-height: 680px; }.welcome-side-note { display: none; }.roots-band>.container>span:nth-child(3) { display: none; }.roots-band>.container { min-height: 75px; }.home-introduction { gap: 45px; }.service-editorial { gap: 35px; }.service-feature { min-height: 570px; }.service-feature-copy { left: 26px; right: 26px; }.service-feature-copy h3 { font-size: 54px; }.expertise-row { gap: 12px; grid-template-columns: 40px 1fr 20px; }.expertise-icon { width: 37px; height: 37px; }.expertise-row h3 { font-size: 27px; }.expertise-row p { font-size: 10px; }.home-reference-list { column-gap: 35px; }.home-reference h3 { font-size: 27px; }.nursery-journal-grid { gap: 40px; }.nursery-journal-copy h2 { font-size: 50px; }.nursery-journal-image>.photo { height: 560px; border-radius: 130px 130px 3px 3px; }.home-philosophy { gap: 50px; }.philosophy-quote h2 { font-size: 48px; }.cta h2 { font-size: 37px; }.footer-grid { grid-template-columns: 1.2fr .75fr 1fr; gap: 30px; }.footer-grid>div:last-child { grid-column: auto; display: block; }.footer-tag { display: none; }.about-opening { gap: 45px; }.about-opening-image .photo { height: 490px; }.company-story { gap: 60px; }.company-story h2 { font-size: 45px; }.reference-grid { gap: 0 25px; }.reference-item h3 { font-size: 27px; }.directory-heading { gap: 50px; } }
+@media (max-width:700px) { .container { width: calc(100% - 44px); }.contact-ribbon>.container { min-height: 29px; font-size: 8px; }.contact-ribbon>.container>span { font-size: 8px; }.contact-ribbon>.container>span>span { margin-inline: 6px; }.contact-ribbon>.container>div { gap: 0; }.contact-ribbon>.container>div>a:first-child { display: none; }.contact-ribbon a { gap: 5px; }.contact-ribbon svg { width: 10px; }.header-inner { height: 82px; gap: 16px; }.brand-wordmark strong { font-size: 27px; }.brand-emblem { width: 79px; height: 44px; }.brand-emblem img { width: 249px; height: 44px; }.header-cta { padding: 13px; }.welcome-hero { height: auto; min-height: 650px; }.welcome-content { min-height: 650px; padding-block: 80px 140px; }.welcome-content h1 { font-size: clamp(59px,10vw,76px); max-width: 570px; }.welcome-content h1 em { max-width: 580px; }.welcome-description { margin-top: 24px; font-size: 14px; max-width: 390px; }.welcome-eyebrow { font-size: 10px; margin-bottom: 25px; }.welcome-actions { gap: 13px; flex-wrap: wrap; margin-top: 29px; }.welcome-actions .button,.hero-outline { padding: 17px 19px; font-size: 11px; gap: 20px; }.welcome-bottom { align-items: flex-start; gap: 15px; bottom: 22px; flex-direction: column; }.welcome-bottom>span { font-size: 8px; margin-left: 47px; }.welcome-shade { background: linear-gradient(90deg,rgba(5,31,20,.82),rgba(8,35,23,.35)),linear-gradient(0deg,rgba(7,28,18,.4),transparent 30%); }.roots-band>.container { flex-wrap: wrap; padding-block: 20px; justify-content: flex-start; gap: 14px 25px; }.roots-band span { font-size: 10px; }.roots-band a { border-left: 0; padding-left: 0; font-size: 10px; }.roots-band>.container>span:nth-child(2) { display: none; }.home-introduction { grid-template-columns: 1fr; padding-block: 70px; gap: 30px; }.introduction-heading h2 { font-size: 54px; }.signature { margin-top: 25px; }.introduction-copy { padding: 0; }.introduction-copy .lead-copy { font-size: 17px; }.home-services { padding-block: 65px; }.home-services .section-heading h2 { font-size: 47px; }.service-editorial { grid-template-columns: 1fr; gap: 32px; }.service-feature { min-height: 450px; }.service-feature-copy h3 { font-size: 56px; }.service-feature-copy { bottom: 60px; }.expertise-row { padding-block: 23px; gap: 16px; grid-template-columns: 43px 1fr 21px; }.expertise-icon { height: 42px; width: 42px; }.expertise-row h3 { font-size: 31px; }.expertise-row p { font-size: 11px; }.home-track-record { padding-block: 70px; }.track-record-heading { grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; }.track-record-heading>p { margin-left: 0; max-width: 450px; }.home-reference-list { grid-template-columns: 1fr; }.home-reference { padding-block: 22px; }.home-reference h3 { font-size: 29px; }.track-record-footer { flex-direction: column; align-items: flex-start; gap: 22px; }.nursery-journal-grid { grid-template-columns: 1fr; padding-block: 65px; gap: 36px; }.nursery-journal-image { max-width: 440px; width: 100%; margin-inline: auto; }.nursery-journal-image>.photo { height: 470px; border-radius: 180px 180px 3px 3px; }.nursery-journal-copy h2 { font-size: 59px; }.nursery-journal-copy>p:not(.eyebrow) { font-size: 14px; }.nursery-types { max-width: 450px; }.home-philosophy { grid-template-columns: 1fr; gap: 35px; padding-block: 70px; }.philosophy-quote h2 { font-size: 48px; }.philosophy-detail { display: grid; grid-template-columns: 40px 1fr; gap: 18px; align-items: start; }.philosophy-detail p { margin: 0; font-size: 13px; }.philosophy-detail .text-link { grid-column: 2; width: fit-content; }.home-process { padding-block: 65px 70px; }.process-grid { gap: 25px; }.cta { padding: 30px; align-items: flex-start; }.cta h2 { font-size: 39px; }.footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 25px; padding-block: 55px; }.footer-brand { grid-column: 1/-1; }.footer-brand>p { max-width: 440px; }.footer-grid>div:last-child { grid-column: auto; }.footer-grid .footer-phone { font-size: 23px; }.footer-bottom { padding-block: 24px; }.about-opening { grid-template-columns: 1fr; padding-block: 45px 60px; gap: 35px; }.about-opening h1 { font-size: 65px; }.about-opening-image .photo { height: 410px; border-radius: 150px 3px 3px 3px; }.company-story { grid-template-columns: 1fr; gap: 25px; padding-block: 0 65px; }.company-story h2 { font-size: 46px; }.company-purpose { padding-block: 60px; }.company-purpose-grid { grid-template-columns: 1fr; gap: 45px; }.company-purpose h2 { font-size: 45px; }.company-nursery { grid-template-columns: 1fr; padding-block: 65px; gap: 35px; }.company-nursery>.photo { height: 400px; }.company-nursery h2 { font-size: 46px; }.directory-heading { grid-template-columns: 1fr; gap: 25px; }.directory-heading h2 { font-size: 41px; }.directory-heading>p { justify-self: start; }.reference-grid { grid-template-columns: 1fr 1fr; gap: 0 24px; }.reference-item h3 { font-size: 27px; }.project-stories-note { flex-direction: column; align-items: flex-start; padding: 26px; }.nursery-profile-note { grid-template-columns: 1fr; gap: 20px; padding: 30px; }.nursery-profile-note h2 { font-size: 36px; }.page-intro>p:last-child { font-size: 13px; } }
+@media (max-width:480px) { .container { width: calc(100% - 40px); }.header-inner { height: 76px; gap: 10px; }.brand { gap: 7px; }.brand-emblem { width: 63px; height: 35px; }.brand-emblem img { width: 198px; height: 35px; }.brand-wordmark strong { font-size: 24px; }.brand-wordmark small { font-size: 7px; letter-spacing: .16em; margin-top: 4px; }.header-cta { font-size: 0; padding: 9px; border-radius: 50%; width: 34px; height: 34px; gap: 0; }.header-cta svg { display: block; width: 16px; height: 16px; }.menu-button { padding: 5px; }.menu-button svg { width: 22px; }.contact-ribbon>.container { font-size: 7px; }.contact-ribbon>.container>span { font-size: 7px; }.welcome-hero { min-height: 655px; }.welcome-content { min-height: 655px; padding-block: 65px 140px; }.welcome-content h1 { font-size: 56px; line-height: 1.06; max-width: 350px; text-wrap: initial; }.welcome-content h1>span { max-width: 340px; }.welcome-content h1>em { font-size: 54px; }.welcome-description { font-size: 13px; max-width: 315px; line-height: 1.85; }.welcome-eyebrow { font-size: 9px; margin-bottom: 22px; }.welcome-actions { gap: 11px; }.welcome-actions .button,.hero-outline { font-size: 10px; padding: 16px 14px; gap: 12px; }.welcome-actions svg { width: 15px; }.welcome-bottom>a { font-size: 9px; }.roots-band>.container { gap: 12px 20px; }.roots-band span,.roots-band a { font-size: 9px; }.roots-band svg { width: 16px; }.introduction-heading h2 { font-size: 46px; }.signature span:first-child { font-size: 24px; }.home-services .section-heading h2 { font-size: 44px; }.service-feature { min-height: 440px; }.service-feature-copy { left: 26px; right: 26px; }.service-feature-copy h3 { font-size: 54px; }.service-feature-copy .eyebrow { font-size: 8px; }.service-feature-link { font-size: 11px; }.expertise-row h3 { font-size: 27px; }.expertise-row p { font-size: 10px; }.expertise-row { gap: 13px; grid-template-columns: 40px 1fr 18px; }.expertise-icon { width: 38px; height: 38px; }.expertise-icon svg { width: 21px; }.track-record-heading h2 { font-size: 45px; }.home-reference h3 { font-size: 28px; }.nursery-journal-image>.photo { height: 425px; border-radius: 170px 170px 3px 3px; }.nursery-journal-copy h2 { font-size: 53px; }.nursery-types>span { font-size: 10px; padding-right: 10px; }.philosophy-quote h2 { font-size: 43px; }.home-process h2 { font-size: 45px; }.cta { padding: 26px; }.cta h2 { font-size: 37px; }.footer-grid { column-gap: 25px; }.footer-grid>div>a { font-size: 11px; overflow-wrap: anywhere; }.footer-grid .footer-phone { font-size: 23px; white-space: nowrap; }.footer-grid>div>p { font-size: 11px; }.brand-footer .brand-wordmark strong { font-size: 32px; }.about-opening h1 { font-size: 57px; }.about-dates { gap: 28px; }.about-opening-image .photo { height: 345px; }.company-story h2 { font-size: 44px; }.founder-strip { padding: 23px; gap: 17px; }.founder-monogram { width: 54px; height: 54px; font-size: 26px; }.founder-strip h3 { font-size: 15px; }.company-nursery>.photo { height: 350px; }.reference-grid { grid-template-columns: 1fr; gap: 0; }.reference-item h3 { min-height: 0; font-size: 30px; }.reference-item { padding-block: 25px; }.directory-heading h2 { font-size: 39px; }.project-stories-note h2 { font-size: 33px; }.nursery-profile-note { padding: 25px; }.contact-info h2 { font-size: 45px; }.field { font-size: 12px; } }
+@media (max-width:360px) { .brand-wordmark strong { font-size: 21px; }.brand-emblem { width: 55px; height: 31px; }.brand-emblem img { width: 176px; height: 31px; }.header-inner { gap: 8px; }.welcome-content h1 { font-size: 51px; }.welcome-content h1>em { font-size: 49px; }.welcome-actions .button,.hero-outline { gap: 8px; padding-inline: 12px; font-size: 9px; }.footer-grid .footer-phone { font-size: 21px; } }

@@ -1,0 +1,4 @@
+import { ImageResponse } from 'next/og';
+export const alt='Eco Landscapes & Gardening Ltd — A little closer to nature.';
+export const size={width:1200,height:630};export const contentType='image/png';
+export default function OpenGraphImage(){return new ImageResponse(<div style={{display:'flex',height:'100%',width:'100%',background:'#f5f8f2',color:'#174b35',padding:80,flexDirection:'column',justifyContent:'space-between'}}><div style={{display:'flex',fontSize:24,letterSpacing:5}}>ECO LANDSCAPES & GARDENING LTD</div><div style={{display:'flex',flexDirection:'column',fontFamily:'serif',fontSize:105,lineHeight:1.05}}><span>A little closer</span><span style={{fontStyle:'italic'}}>to nature.</span></div><div style={{display:'flex',fontSize:23}}>Landscaping · Garden care · Nursery · Rwanda</div></div>,size);}

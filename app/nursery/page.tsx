@@ -1,0 +1,17 @@
+import { Sprout, Flower2, TreePine, Leaf } from 'lucide-react';
+import { getContent } from '@/lib/content';
+import { company } from '@/lib/company';
+import { PageIntro, Breadcrumb, CTA, Photo, ButtonLink } from '@/components/ui';
+import { PlantCatalogue } from '@/components/catalogues';
+import { photos } from '@/lib/seed';
+export const metadata = { title: 'Our nursery & planting materials', description: 'Flowers, shrubs, ornamental and indigenous tree seedlings, fruit seedlings and Paspalum turf grass. Explore the Eco Landscapes nursery offering in Rwanda.', alternates: { canonical: '/nursery' } };
+const groups = [
+  { Icon: Flower2, title: 'Flowers & shrubs', copy: 'Planting materials for colour, texture and welcoming garden spaces.' },
+  { Icon: Sprout, title: 'Fruit seedlings', copy: 'Discuss fruit seedling varieties and quantities with our team.' },
+  { Icon: TreePine, title: 'Ornamental trees', copy: 'Tree seedlings for character, shade and landscape beautification.' },
+  { Icon: Leaf, title: 'Indigenous trees', copy: 'Indigenous tree seedlings for your next greening project.' }
+];
+export default async function Nursery() {
+  const { plants, settings } = await getContent();
+  return <><Breadcrumb items={[{ label: 'The nursery' }]}/><PageIntro eyebrow="Good landscapes begin with good roots" title={<>Small beginnings.<br/><em>A world of green.</em></>} description="Our own nursery connects plant supply with the landscapes we install and care for. Speak with the team about the planting materials for your next space."/><div className="container"><Photo src={photos.plants} alt="Ornamental planting and decorative rocks in a finished garden" className="wide-photo" priority sizes="100vw"/><span className="image-caption">Planting inspiration from our landscaping work</span><div className="nursery-profile-note"><h2>From our nursery<br/><em>to your landscape.</em></h2><p>{company.nursery}</p></div><h2 className="plant-category-heading">Find your starting point.</h2><div className="plant-categories" style={{marginTop:35}}>{groups.map(({Icon,title,copy}) => <div key={title}><Icon size={29} strokeWidth={1.2}/><h3>{title}</h3><p>{copy}</p><a className="text-link" href={`/contact?service=${encodeURIComponent(`Nursery inquiry: ${title}`)}`} style={{marginTop:16}}>Ask our team ↗</a></div>)}</div><section className="project-stories-note" style={{marginBottom:55}}><div><h2>A foundation of green.</h2><p>Our company profile identifies Paspalum turf grass plots on the outskirts of Kigali. Ask us about turf grass supply for your landscape, including the area and quantity you have in mind.</p></div><ButtonLink href="/contact?service=Paspalum%20turf%20grass">Inquire about turf grass</ButtonLink></section></div>{plants.length > 0 ? <PlantCatalogue plants={plants} whatsapp={settings.whatsapp}/> : <div className="container" style={{paddingBottom:65}}><p className="content-notice">Please contact the nursery to confirm current varieties, sizes and quantities. Individual plant photographs and descriptions will be added as they are approved.</p></div>}<CTA/></>;
+}

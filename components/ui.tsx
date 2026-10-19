@@ -1,0 +1,10 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowUpRight, Leaf } from 'lucide-react';
+import type { ReactNode } from 'react';
+export function ButtonLink({ href, children, secondary = false, light = false }: { href: string; children: ReactNode; secondary?: boolean; light?: boolean }) { const className=`button ${secondary ? 'secondary' : ''} ${light ? 'light' : ''}`;const content=<>{children}<ArrowUpRight size={17}/></>;return href.startsWith('/documents/')?<a href={href} download className={className}>{content}</a>:<Link href={href} className={className}>{content}</Link>; }
+export function Eyebrow({ children }: { children: ReactNode }) { return <p className="eyebrow"><span/>{children}</p>; }
+export function Photo({ src, alt, className = '', priority = false, sizes = '(max-width: 700px) 100vw, 50vw' }: { src: string; alt: string; className?: string; priority?: boolean; sizes?: string }) { return <div className={`photo ${className}`}><Image src={src} alt={alt} fill sizes={sizes} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'}/></div>; }
+export function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: ReactNode; description: string }) { return <header className="page-intro container"><Eyebrow>{eyebrow}</Eyebrow><h1>{title}</h1><p>{description}</p></header>; }
+export function CTA() { return <section className="cta container"><div className="cta-icon"><Leaf strokeWidth={1}/></div><div><Eyebrow>Let’s grow something together</Eyebrow><h2>Your space. <em>New possibilities.</em></h2><p>Tell us what you have in mind. We’ll help you take the next step.</p></div><ButtonLink href="/contact?service=Site%20visit" light>Request a site visit</ButtonLink></section>; }
+export function Breadcrumb({ items }: { items: { label: string; href?: string }[] }) { return <nav aria-label="Breadcrumb" className="breadcrumbs container"><Link href="/">Home</Link>{items.map((item, i) => <span key={i}><span aria-hidden="true">/</span>{item.href ? <Link href={item.href}>{item.label}</Link> : item.label}</span>)}</nav>; }
