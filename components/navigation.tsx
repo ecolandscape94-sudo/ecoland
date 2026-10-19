@@ -7,7 +7,7 @@ import { Brand } from './brand';
 const links = [
   { href: '/', label: 'Home' }, { href: '/about', label: 'Our story' },
   { href: '/services', label: 'Services' }, { href: '/projects', label: 'Our work' },
-  { href: '/nursery', label: 'The nursery' }
+  { href: '/nursery', label: 'The nursery' }, { href: '/blog', label: 'Journal' }
 ];
 export function Navigation({ phone, address }: { phone: string; address: string }) {
   const pathname = usePathname();

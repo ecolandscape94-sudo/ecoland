@@ -59,6 +59,10 @@ Set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` for an Upstash Redis
 
 An inquiry is saved before email is attempted. Notification states are `pending`, `sent`, `failed` and `unconfigured`. If Resend fails, the inquiry remains saved and staff can retry the notification. A rare status-write failure leaves `pending` for review. Retries may send a duplicate email; review before retrying. A storage failure returns an error, never a success message. If a connection drops after Google accepts a write, its outcome can be uncertain; check the dashboard before resubmitting.
 
+## Journal and Airtable
+
+The public journal is available at `/blog`. It reads the `Title`, `Date`, `image`, `Content`, and `Published` fields from the configured Airtable table. Only records with `Published` checked and a title and content appear; the page and article routes refresh cached Airtable data every 60 seconds. Keep `AIRTABLE_TOKEN` server-only, with read access to this base, and set `AIRTABLE_BASE_ID` and `AIRTABLE_TABLE_ID` from `.env.example`. Article images are served through a server route so Airtable attachment URLs and the API token never appear in page markup. Set all three Airtable values in the production host as well as local `.env.local`.
+
 ## Content management
 
 - **Projects:** add approved title, unique slug, category, description, location and scope/results when verified. Upload company photographs; add gallery captions. Use matching before/after photographs of the same site. Choose `published` only after approval; `archived` hides content without deleting it.
@@ -72,9 +76,9 @@ An inquiry is saved before email is attempted. Notification states are `pending`
 
 ## Vercel deployment
 
-1. Put this project in its own Git repository and import it into Vercel. If it is inside a larger repository, select `ecoland` as the Root Directory. No Git push or account creation was performed by this build.
+1. Import this project’s GitHub repository into Vercel. If the repository contains multiple apps, select `ecoland` as the Root Directory.
 2. Select the Next.js framework preset and a supported Node.js version (22 or newer). The build command is `npm run build`; Vercel manages the output directory. No custom `vercel.json` is required.
-3. Set all provider environment variables from `.env.example` in Vercel’s project settings. Set `NEXT_PUBLIC_SITE_URL` and `AUTH_URL` to your final HTTPS domain. Add the matching Google OAuth callback URI.
+3. Set all provider environment variables from `.env.example` in Vercel’s project settings, including the Airtable token, base ID and table ID. Set `NEXT_PUBLIC_SITE_URL` and `AUTH_URL` to your final HTTPS domain. Add the matching Google OAuth callback URI.
 4. Initialize the Sheet using the local setup script before enabling submissions. Verify the Google account allowlists and Redis connection.
 5. Set all required production environment variables, including the Resend API key, verified sender and recipient. Deploy, then test Google staff sign-in, content edits, public cache invalidation, Cloudinary upload/private attachments, a real inquiry and notification delivery. Keep client projects/plants in draft until their content is approved.
 6. Configure your custom domain, Search Console verification and sitemap submission. Optional `NEXT_PUBLIC_GA_ID` enables analytics only after consent. Inquiry conversion events are sent only after a successful saved submission.

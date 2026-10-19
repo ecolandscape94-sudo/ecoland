@@ -8,6 +8,7 @@ import './globals.css';
 import './premium.css';
 import './garden-theme.css';
 import './home.css';
+import './blog.css';
 export async function generateMetadata(): Promise<Metadata> { const { settings } = await getContent(); return { metadataBase: new URL(siteUrl()), title: { default: 'Eco Landscapes & Gardening Ltd | Landscaping in Rwanda', template: '%s | Eco Landscapes' }, description: settings.seoDescription, openGraph: { type: 'website', locale: 'en_RW', siteName: 'Eco Landscapes & Gardening Ltd', images: [{ url: '/opengraph-image', width: 1200, height: 630 }] }, twitter: { card: 'summary_large_image' }, verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }; }
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { settings } = await getContent();
