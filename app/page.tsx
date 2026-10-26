@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpRight, Leaf, Sprout } from 'lucide-react';
+import { ArrowUpRight, Sprout } from 'lucide-react';
 import { getContent } from '@/lib/content';
 import { company } from '@/lib/company';
 import { Photo } from '@/components/ui';
@@ -75,15 +75,15 @@ export default async function Home() {
       <div className="luxe-nursery-image"><Photo src="/9.webp" alt="Lush tropical foliage and red flowers in an Eco Landscapes garden" sizes="(max-width: 700px) 100vw, 50vw"/><span>Planting details from our work</span></div>
       <div className="luxe-nursery-copy"><p className="luxe-eyebrow"><Sprout size={18} strokeWidth={1.4}/>Grown with purpose</p><h2 id="nursery-heading">Every beautiful<br/>garden starts with<br/><em>good roots.</em></h2><p>Our own nursery. Our own care. From flowers and tree seedlings to Paspalum turf grass, we help you find the right beginning for your space.</p><div className="luxe-nursery-types"><span>Flowers & shrubs</span><span>Ornamental & indigenous trees</span><span>Paspalum turf grass</span></div><Link href="/nursery" className="luxe-button luxe-button-white">Discover the nursery <ArrowUpRight size={19}/></Link></div>
     </section>
-
-    <section className="luxe-process luxe-wrap luxe-section" aria-labelledby="process-heading"><div className="luxe-section-head"><div><p className="luxe-eyebrow">05 / A thoughtful beginning</p><h2 id="process-heading">Your idea.<br/><em>Our care, every step.</em></h2></div><p>A better outdoor space begins<br/>with a simple conversation.</p></div><div className="luxe-process-grid">{[
-      ['Tell us about your space.', 'Share your ideas, your location and what you would love your garden to become.'],
-      ['Let’s explore the possibilities.', 'A conversation and site visit help us understand your space and agree the right scope.'],
-      ['Watch your space come to life.', 'From the first planting to ongoing care, we bring the agreed plan to life with diligence.']
-    ].map(([title, copy], index) => <div key={title}><div className="luxe-step-line"><span>0{index + 1}</span><i/></div><h3>{title}</h3><p>{copy}</p></div>)}</div></section>
-
     {!!data.testimonials.length && <section className="luxe-testimonials luxe-wrap"><p className="luxe-eyebrow">In our clients’ words</p>{data.testimonials.map(item => <blockquote key={item.id}><p>“{String(item.quote)}”</p><cite>{String(item.attribution)}</cite></blockquote>)}</section>}
 
-    <section className="luxe-closing" aria-labelledby="closing-heading"><Leaf size={35} strokeWidth={1.1}/><p className="luxe-eyebrow">There’s something beautiful ahead</p><h2 id="closing-heading">Your next chapter.<br/><em>A little greener.</em></h2><p>Let’s make a little room for nature.</p><div><Link href="/contact?service=Site%20visit" className="luxe-button">Plan your landscape <ArrowUpRight size={19}/></Link><a href={`tel:${data.settings.phone || company.phone}`} className="luxe-call">Or give us a call <ArrowUpRight size={16}/></a></div></section>
+    <section className="luxe-thoughtful-cta luxe-wrap" aria-labelledby="closing-heading">
+      <div className="luxe-thoughtful-photo"><Photo src="/images/home-engineer-call.webp" alt="A smiling Eco Landscapes engineer taking a call at a garden project in Kigali" priority sizes="(max-width: 760px) 100vw, 42vw"/><span>Here when you’re ready to grow</span></div>
+      <div className="luxe-thoughtful-copy"><p className="luxe-eyebrow">05 / A thoughtful beginning</p><p className="luxe-thoughtful-overline">There’s something beautiful ahead</p><h2 id="closing-heading">Your idea.<br/><em>Our care, every step.</em></h2><p className="luxe-thoughtful-intro">A better outdoor space begins with a simple conversation. Tell us about your space and we’ll help you explore what’s possible.</p><ol className="luxe-thoughtful-steps">{[
+        ['01', 'Tell us about your space.', 'Share your ideas, location and what you would love your garden to become.'],
+        ['02', 'Let’s explore the possibilities.', 'A conversation and site visit help us understand your space and agree the right scope.'],
+        ['03', 'Watch your space come to life.', 'We bring the agreed plan to life with thoughtful planting and care.']
+      ].map(([number, title, copy]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol><div className="luxe-thoughtful-actions"><Link href="/contact?service=Site%20visit" className="luxe-button">Plan your landscape <ArrowUpRight size={19}/></Link><a href={`tel:${data.settings.phone || company.phone}`} className="luxe-call">Or give us a call <ArrowUpRight size={16}/></a></div></div>
+    </section>
   </div>;
 }
