@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { ArrowUpRight, ArrowDown, Leaf, Sprout, MoveRight } from 'lucide-react';
+import { ArrowUpRight, Leaf, Sprout } from 'lucide-react';
 import { getContent } from '@/lib/content';
 import { company } from '@/lib/company';
-import { photos } from '@/lib/seed';
 import { Photo } from '@/components/ui';
+import { HomeHero } from '@/components/home-hero';
+import { HomePartners } from '@/components/home-partners';
 
 export const metadata = { alternates: { canonical: '/' } };
 
@@ -20,42 +21,41 @@ const finishingCards = [
 
 export default async function Home() {
   const data = await getContent();
-  const hero = data.sections.find(section => section.id === 'hero');
   const serviceUrl = (id: string) => {
     const service = data.services.find(item => item.id === id);
     return service ? `/services/${service.slug}` : '/services';
   };
   return <div className="luxe-home">
-    <section className="luxe-hero" aria-labelledby="welcome-heading">
-      <Photo src={String(hero?.image || photos.hero)} alt="A lush garden with flowering borders and carefully shaped lawns by Eco Landscapes & Gardening Ltd" className="luxe-hero-photo" priority sizes="100vw"/>
-      <div className="luxe-hero-shade"/>
-      <div className="luxe-hero-content">
-        <p className="luxe-welcome"><span/>Welcome to {company.name}</p>
-        <h1 id="welcome-heading">A little closer<br/>to <em>nature.</em><br/>A little more <em>you.</em></h1>
-        <p className="luxe-hero-description">Beautiful gardens. Thoughtful details.<br/>Outdoor spaces made for living.</p>
-        <Link href="/contact?service=Site%20visit" className="luxe-button luxe-button-white">Let’s create your garden <ArrowUpRight size={19}/></Link>
-      </div>
-      <Link href="/projects#work-gallery-heading" className="luxe-hero-note">
-        <Photo src="/10.webp" alt="Curved decorative pebble borders from our work" sizes="100px"/>
-        <div><span>A glimpse of our work</span><strong>Details that make <br/>a difference.</strong></div><ArrowUpRight size={20}/>
-      </Link>
-      <div className="luxe-hero-bottom"><a href="#our-roots"><ArrowDown size={16}/>Discover our world</a><span>Kigali, Rwanda <i/> Est. 2021</span></div>
-    </section>
+    <HomeHero/>
 
     <div className="luxe-assurance luxe-wrap"><span><Sprout size={20} strokeWidth={1.3}/>From our nursery to your garden</span><span className="luxe-assurance-services">Landscaping <i/> Planting <i/> Garden care</span><a href={data.settings.profileUrl || company.profileUrl} download>Company profile <ArrowUpRight size={15}/></a></div>
 
-    <section id="our-roots" className="luxe-intro luxe-wrap luxe-section">
-      <div><p className="luxe-eyebrow">01 / Rooted in care</p><h2>Good gardens grow.<br/><em>Great spaces belong.</em></h2></div>
-      <div className="luxe-intro-copy"><p className="luxe-lead">A garden is more than what you see.<br/>It’s how a place makes you feel.</p><p>We’re Eco Landscapes & Gardening Ltd, a Rwandan team bringing life to outdoor spaces. From a quiet corner at home to the grounds of a growing community, we shape, plant and care for places that matter.</p><Link href="/about" className="luxe-text-link">Get to know us <ArrowUpRight size={18}/></Link></div>
+    <section id="our-roots" className="luxe-about luxe-wrap luxe-section" aria-labelledby="about-heading">
+      <div className="luxe-about-heading">
+        <p className="luxe-eyebrow">01 / About us</p>
+        <h2 id="about-heading">Your outdoors.<br/><em>Our passion.</em></h2>
+      </div>
+      <div className="luxe-about-visual">
+        <Photo src="/10.webp" alt="An Eco Landscapes garden with sculpted shrubs, flowering plants and curved pathways edged in decorative pebbles" sizes="(max-width: 700px) 100vw, 45vw"/>
+        <div className="luxe-about-seal"><Sprout size={30} strokeWidth={1.2}/><span>Rooted in care.<br/><em>Growing since 2021.</em></span></div>
+        <span className="luxe-about-image-note">Thoughtful details. Beautiful outdoors.</span>
+      </div>
+      <div className="luxe-about-copy">
+        <p className="luxe-about-lead">From a fresh idea to a flourishing garden,<br/>we take care of every detail.</p>
+        <p>We’re {company.name}, a team based in Kigali, bringing life to homes, businesses and community spaces across Rwanda. We design, plant, beautify and maintain outdoor spaces, with our own nursery supporting every green beginning.</p>
+        <p className="luxe-about-summary">From landscape design, planting and garden care to lighting, decoration and paving, we bring every detail together. Our Kigali nursery supplies flowers, seedlings, ornamental and indigenous trees, and Paspalum turf.</p>
+        <div className="luxe-about-actions"><Link href="/contact?service=Site%20visit" className="luxe-button">Let’s talk about your space <ArrowUpRight size={18}/></Link><Link href="/about" className="luxe-text-link">Our story <ArrowUpRight size={17}/></Link></div>
+      </div>
     </section>
 
     <section className="luxe-services luxe-wrap luxe-section" aria-labelledby="services-heading">
       <div className="luxe-section-head"><div><p className="luxe-eyebrow">02 / What we do</p><h2 id="services-heading">From the first idea<br/>to the <em>last detail.</em></h2></div><Link href="/services" className="luxe-text-link">Explore our services <ArrowUpRight size={18}/></Link></div>
-      <div className="luxe-service-grid">{coreCards.map((card, index) => <Link href={serviceUrl(card.id)} className="luxe-service-card" key={card.id}>
+      <div className="luxe-service-grid">{coreCards.map((card, index) => <Link href={serviceUrl(card.id)} className={`luxe-service-card${index > 1 ? ' luxe-service-card-extra' : ''}`} key={card.id}>
         <div className="luxe-service-image"><Photo src={card.image} alt={card.alt} sizes="(max-width: 700px) 100vw, 33vw"/><span className="luxe-card-number">0{index + 1}</span><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div>
         <div className="luxe-service-body"><p className="luxe-card-label">{data.services.find(service => service.id === card.id)?.title || card.id}</p><h3>{card.title}</h3><p>{card.copy}</p></div>
       </Link>)}</div>
       <div className="luxe-services-extra"><span>And a little more green.</span><Link href={serviceUrl('installation')}>Greening & beautification <ArrowUpRight size={16}/></Link><Link href={serviceUrl('greening')}>Tree planting <ArrowUpRight size={16}/></Link></div>
+      <Link href="/projects" className="luxe-mobile-projects-link"><span className="luxe-mobile-projects-copy"><small>See what we’ve grown</small><strong>View more of our projects</strong></span><ArrowUpRight size={19}/></Link>
     </section>
 
     <section className="luxe-work luxe-section" aria-labelledby="work-heading"><div className="luxe-wrap">
@@ -64,8 +64,9 @@ export default async function Home() {
         <Link href="/projects#work-gallery-heading" className="luxe-work-card"><div className="luxe-work-image"><Photo src="/6.png" alt="An Eco Landscapes garden with a sweeping lawn and curved flower borders" sizes="(max-width: 700px) 100vw, 56vw"/><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div><div className="luxe-work-caption"><div><span>Garden design & beautification</span><h3>Nature, beautifully considered.</h3></div><span className="luxe-work-index">01</span></div></Link>
         <Link href="/projects#work-gallery-heading" className="luxe-work-card"><div className="luxe-work-image"><Photo src="/7.webp" alt="An entrance framed by ornamental conifers and rock planting by Eco Landscapes" sizes="(max-width: 700px) 100vw, 44vw"/><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div><div className="luxe-work-caption"><div><span>Planting & outdoor details</span><h3>A welcome worth coming home to.</h3></div><span className="luxe-work-index">02</span></div></Link>
       </div>
-      <div className="luxe-references"><div><span className="luxe-eyebrow">Our project references include</span><Link href="/projects#directory-heading">View all references <MoveRight size={17}/></Link></div><span>Kepler<br/><em>College</em></span><span>Baho International<br/><em>Hospital</em></span><span>SOS Children’s Village<br/><em>Kinyinya</em></span></div>
     </div></section>
+
+    <HomePartners/>
 
     <section id="garden-finishes" className="luxe-finishes luxe-wrap luxe-section" aria-labelledby="finishes-heading">
       <div className="luxe-section-head"><div><p className="luxe-eyebrow">04 / The details make the garden</p><h2 id="finishes-heading">A touch of character.<br/><em>A whole new feeling.</em></h2></div><p>The glow of a garden at dusk.<br/>The path that draws you in.<br/>Small details. Lasting impressions.</p></div>
