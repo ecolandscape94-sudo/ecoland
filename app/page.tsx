@@ -9,9 +9,9 @@ import { HomePartners } from '@/components/home-partners';
 export const metadata = { alternates: { canonical: '/' } };
 
 const coreCards = [
-  { id: 'landscaping', image: '/1.webp', alt: 'Lawn, palms and stone-edged garden paths by Eco Landscapes', title: 'Landscapes with character.', copy: 'Thoughtful design. Natural beauty. A space that feels like yours.' },
-  { id: 'maintenance', image: '/5.webp', alt: 'Carefully maintained green lawn and shaped garden planting by Eco Landscapes', title: 'Beautiful, season after season.', copy: 'The ongoing attention that keeps your garden looking its best.' },
-  { id: 'supply', image: '/2.webp', alt: 'Ornamental conifers framed by natural rocks in an Eco Landscapes garden', title: 'Good things start at the roots.', copy: 'Plants, seedlings and turf to bring your next green space to life.' }
+  { id: 'landscaping', image: '/1.webp', alt: 'Lawn, palms and stone-edged garden paths by Eco Landscapes', title: 'Landscaping & garden design', copy: 'Garden layouts, planting, lawns and outdoor finishes.' },
+  { id: 'maintenance', image: '/5.webp', alt: 'Carefully maintained green lawn and shaped garden planting by Eco Landscapes', title: 'Garden care & maintenance', copy: 'Regular care to keep planted spaces healthy and neat.' },
+  { id: 'supply', image: '/2.webp', alt: 'Ornamental conifers framed by natural rocks in an Eco Landscapes garden', title: 'Plants & seedling supply', copy: 'Flowers, fruit seedlings, trees, shrubs and Paspalum turf.' }
 ];
 const finishingCards = [
   { id: 'decoration', image: '/images/service-concepts/decoration.webp', label: 'Garden decoration', title: 'The art of the finishing touch.', copy: 'Planting, colour and carefully chosen details.', alt: 'AI-created service illustration of a Kigali-style garden with flowers, palms, pebble borders and a terracotta planter' },
@@ -41,9 +41,7 @@ export default async function Home() {
         <span className="luxe-about-image-note">Thoughtful details. Beautiful outdoors.</span>
       </div>
       <div className="luxe-about-copy">
-        <p className="luxe-about-lead">From a fresh idea to a flourishing garden,<br/>we take care of every detail.</p>
-        <p>We’re {company.name}, a team based in Kigali, bringing life to homes, businesses and community spaces across Rwanda. We design, plant, beautify and maintain outdoor spaces, with our own nursery supporting every green beginning.</p>
-        <p className="luxe-about-summary">From landscape design, planting and garden care to lighting, decoration and paving, we bring every detail together. Our Kigali nursery supplies flowers, seedlings, ornamental and indigenous trees, and Paspalum turf.</p>
+        <div className="luxe-about-card"><p className="luxe-about-card-label">Rooted in Kigali</p><p className="luxe-about-summary">We design, plant and care for gardens across Rwanda. Our nursery supplies flowers, seedlings, trees and Paspalum turf, with lighting, decoration and paving to complete each space.</p></div>
         <div className="luxe-about-actions"><Link href="/contact?service=Site%20visit" className="luxe-button">Let’s talk about your space <ArrowUpRight size={18}/></Link><Link href="/about" className="luxe-text-link">Our story <ArrowUpRight size={17}/></Link></div>
       </div>
     </section>
@@ -52,10 +50,10 @@ export default async function Home() {
       <div className="luxe-section-head"><div><p className="luxe-eyebrow">02 / What we do</p><h2 id="services-heading">From the first idea<br/>to the <em>last detail.</em></h2></div><Link href="/services" className="luxe-text-link">Explore our services <ArrowUpRight size={18}/></Link></div>
       <div className="luxe-service-grid">{coreCards.map((card, index) => <Link href={serviceUrl(card.id)} className={`luxe-service-card${index > 1 ? ' luxe-service-card-extra' : ''}`} key={card.id}>
         <div className="luxe-service-image"><Photo src={card.image} alt={card.alt} sizes="(max-width: 700px) 100vw, 33vw"/><span className="luxe-card-number">0{index + 1}</span><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div>
-        <div className="luxe-service-body"><p className="luxe-card-label">{data.services.find(service => service.id === card.id)?.title || card.id}</p><h3>{card.title}</h3><p>{card.copy}</p></div>
+        <div className="luxe-service-body"><h3>{data.services.find(service => service.id === card.id)?.title || card.title}</h3><p>{card.copy}</p></div>
       </Link>)}</div>
       <div className="luxe-services-extra"><span>And a little more green.</span><Link href={serviceUrl('installation')}>Greening & beautification <ArrowUpRight size={16}/></Link><Link href={serviceUrl('greening')}>Tree planting <ArrowUpRight size={16}/></Link></div>
-      <Link href="/projects" className="luxe-mobile-projects-link"><span className="luxe-mobile-projects-copy"><small>See what we’ve grown</small><strong>View more of our projects</strong></span><ArrowUpRight size={19}/></Link>
+      <Link href="/services" className="luxe-mobile-projects-link"><span className="luxe-mobile-projects-copy"><small>Our services</small><strong>Explore all services</strong></span><ArrowUpRight size={19}/></Link>
     </section>
 
     <section className="luxe-work luxe-section" aria-labelledby="work-heading"><div className="luxe-wrap">

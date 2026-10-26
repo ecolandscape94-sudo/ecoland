@@ -61,7 +61,7 @@ export function HomeHero() {
         aria-label={`${index + 1} of ${slides.length}: ${slide.label}`}
         aria-hidden={active !== index}
       >
-        <Photo src={slide.src} alt={slide.alt} className="luxe-hero-photo" priority={index === 0} sizes="(max-width: 700px) 320vw, 100vw" quality={90}/>
+        <Photo src={slide.src} alt={slide.alt} className="luxe-hero-photo" priority={index === 0} sizes="100vw" quality={75}/>
       </div>)}
     </div>
     <div className="luxe-hero-shade"/>
