@@ -10,6 +10,8 @@ export const getContent = cache(async () => {
   const site = { ...defaultSettings, email: process.env.BUSINESS_EMAIL || '', phone: process.env.BUSINESS_PHONE || '', whatsapp: process.env.BUSINESS_WHATSAPP || '', address: process.env.BUSINESS_ADDRESS || '', ...settings[0] } as Settings;
   // Blank CMS defaults must not erase verified environment contact settings.
   for (const key of ['email', 'phone', 'whatsapp', 'address'] as const) if (!site[key]) site[key] = process.env[`BUSINESS_${key.toUpperCase()}`] || defaultSettings[key];
+  // Replace the former company address in saved settings or environment values.
+  if (site.email.trim().toLowerCase() === 'ecolandgarde@gmail.com') site.email = defaultSettings.email;
   if(!site.profileUrl)site.profileUrl=defaultSettings.profileUrl;
   return { projects: projects.filter(r => r.status === 'published') as Project[], plants: plants.filter(r => r.status === 'published') as Plant[], services: (services.length ? services : fallbackServices).filter(r => r.status === 'published') as Service[], sections: sections.filter(r => r.status === 'published') as ContentRecord[], testimonials: testimonials.filter(r => r.status === 'published' && r.approved), settings: site, demo: !sheetsConfigured() };
 });

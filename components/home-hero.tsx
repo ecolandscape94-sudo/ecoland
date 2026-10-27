@@ -13,7 +13,7 @@ const slides = [
 const slideDuration = 6500;
 
 function HeroPhoto({ src, mobileSrc, alt, first }: { src: string; mobileSrc: string; alt: string; first: boolean }) {
-  const common = { alt, fill: true, sizes: '100vw', quality: 75, loading: 'eager' as const, fetchPriority: first ? 'high' as const : 'auto' as const };
+  const common = { alt, fill: true, sizes: '100vw', quality: 85, loading: 'eager' as const, fetchPriority: first ? 'high' as const : 'auto' as const };
   const { props: desktop } = getImageProps({ ...common, src });
   const { props: { srcSet: mobileSrcSet } } = getImageProps({ ...common, src: mobileSrc });
 

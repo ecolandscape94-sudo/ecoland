@@ -9,7 +9,7 @@ export const company = {
   founderRole: 'Founder & Managing Director',
   phone: '+250788755016',
   phoneDisplay: '+250 788 755 016',
-  email: 'ecolandgarde@gmail.com',
+  email: 'ecolandscape94@gmail.com',
   address: 'Kagugu Cell, Kinyinya Sector, Gasabo District, Kigali, Rwanda',
   profileUrl: '/documents/eco-landscapes-company-profile.pdf',
   story: 'Founded and officially registered on 15 March 2021, Eco Landscapes & Gardening Ltd is a Rwandan company specialising in soft landscaping and gardening. From our head office in Kagugu, we serve residential, commercial and institutional spaces with planting, beautification and garden maintenance.',
