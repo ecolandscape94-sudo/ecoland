@@ -5,7 +5,7 @@ import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import type { Service } from '@/lib/models';
 declare global { interface Window { gtag?: (...args: unknown[]) => void; } }
 export function InquiryForm({ services, initialService = '', compact = false, minimal = false }: { services: Service[]; initialService?: string; compact?: boolean; minimal?: boolean }) {
- const [pending,setPending] = useState(false); const [error,setError] = useState(''); const [success,setSuccess] = useState(''); const formRef = useRef<HTMLFormElement>(null);
+ const [pending,setPending] = useState(false); const [error,setError] = useState(''); const [success,setSuccess] = useState<{id:string;delivery:'email'|'saved'}|null>(null); const formRef = useRef<HTMLFormElement>(null);
  async function submit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault(); if (pending) return; setError(''); setPending(true);
   const form = new FormData(event.currentTarget); const data = new FormData();
@@ -14,11 +14,11 @@ export function InquiryForm({ services, initialService = '', compact = false, mi
   const files = form.getAll('attachments').filter(f => f instanceof File && f.size > 0) as File[];
   if (files.length > 3 || files.some(f => f.size > 1024 * 1024 || !['image/jpeg','image/png','image/webp'].includes(f.type))) { setError('Choose up to 3 JPG, PNG or WebP photos, each no larger than 1 MB.'); setPending(false); return; }
   files.forEach(file => data.append('attachments', file));
-  try { const response = await fetch('/api/inquiries', { method: 'POST', body: data }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Your inquiry could not be saved. Please try again.'); setSuccess(result.id); formRef.current?.reset(); window.gtag?.('event','generate_lead',{ service: payload.service }); }
+  try { const response = await fetch('/api/inquiries', { method: 'POST', body: data }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Your inquiry could not be sent. Please try again.'); setSuccess({id:result.id,delivery:result.delivery==='email'?'email':'saved'}); formRef.current?.reset(); window.gtag?.('event','generate_lead',{ service: payload.service }); }
   catch (e) { setError(e instanceof Error ? e.message : 'Unable to send your inquiry. Please try again.'); }
   finally { setPending(false); }
  }
- if (success) return <div className="form-success" role="status"><CheckCircle2 size={30}/><h3>Thank you. Let’s grow your idea.</h3><p>Your inquiry has been saved. The team can review your request and contact you using the details you supplied.</p><p>Reference: {success}</p><button className="button secondary" onClick={() => setSuccess('')}>Send another inquiry</button></div>;
+ if (success) return <div className="form-success" role="status"><CheckCircle2 size={30}/><h3>Thank you. Let’s grow your idea.</h3><p>{success.delivery==='email'?'Your inquiry has been sent to our team.':'Your inquiry has been saved for our team to review.'} We’ll contact you using the details you supplied.</p><p>Reference: {success.id}</p><button className="button secondary" onClick={() => setSuccess(null)}>Send another inquiry</button></div>;
  const options = ['Site visit', ...services.map(s => s.title), 'Nursery inquiry', 'General inquiry']; if (initialService && !options.includes(initialService)) options.unshift(initialService);
  return <form ref={formRef} onSubmit={submit} className="inquiry-form"><h2>{minimal ? 'Send us a message.' : compact ? 'Let’s talk about your space.' : 'Tell us what you have in mind.'}</h2><p>{minimal ? 'Fields marked * are required.' : 'Share a few details and we can discuss the right next step. Required fields are marked *.'}</p><div className="form-grid">
   <label className="field">Full name *<input name="name" required minLength={2} maxLength={100} autoComplete="name"/></label><label className="field">Email address *<input name="email" type="email" required maxLength={200} autoComplete="email"/></label>

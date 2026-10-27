@@ -2,8 +2,20 @@ import { createHash } from 'node:crypto';
 const counters = new Map<string, { count: number; until: number }>();
 export function sameOrigin(request: Request) {
   const origin = request.headers.get('origin');
-  const allowed = [new URL(request.url).origin, process.env.NEXT_PUBLIC_SITE_URL, process.env.AUTH_URL].filter(Boolean);
-  return !!origin && allowed.includes(origin);
+  if (!origin) return false;
+  try {
+    const incomingOrigin = new URL(origin);
+    if (incomingOrigin.origin !== origin || !['http:', 'https:'].includes(incomingOrigin.protocol)) return false;
+    const requestUrl = new URL(request.url);
+    const allowed = [requestUrl.origin, process.env.NEXT_PUBLIC_SITE_URL, process.env.AUTH_URL].filter(Boolean);
+    if (allowed.includes(origin)) return true;
+    // Next can use its configured hostname in request.url even when the browser
+    // accessed the same server through another hostname, such as 127.0.0.1.
+    const host = request.headers.get('host');
+    return !!host && incomingOrigin.protocol === requestUrl.protocol && incomingOrigin.host.toLowerCase() === host.toLowerCase();
+  } catch {
+    return false;
+  }
 }
 export function rateKey(request: Request, scope: string) {
   // Vercel sets this trusted header; never trust a user-supplied X-Forwarded-For there.

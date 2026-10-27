@@ -5,8 +5,18 @@ import { detectImage, sameOrigin, rateLimit } from '../lib/security';
 import { parseRows, saveRecord, listRecords } from '../lib/sheets';
 import { projects, plants } from '../lib/seed';
 import { persistAndNotify } from '../lib/inquiry-workflow';
+import { renderInquiryEmail } from '../lib/inquiry-email';
 const valid = {name:'Test Gardener',email:'test@example.com',phone:'+250 788 000 000',service:'Garden maintenance',location:'Kigali',size:'Small garden',description:'Please help plan the care for my garden.',consent:true as const,website:''};
 const inquiry:Inquiry={...valid,id:'inquiry-test',status:'New',notes:'',notification:'pending',createdAt:'2026-10-14T12:00:00Z',attachments:[]};
+test('inquiry email preserves details, escapes HTML and describes photo delivery',()=>{
+ const rendered=renderInquiryEmail({...inquiry,name:'<script>alert("x")</script>',description:'First line\nSecond & line'},1);
+ assert.match(rendered.html,/&lt;script&gt;alert\(&quot;x&quot;\)&lt;\/script&gt;/);
+ assert.doesNotMatch(rendered.html,/<script>/);
+ assert.match(rendered.html,/First line<br>Second &amp; line/);
+ assert.match(rendered.html,/1 photo is attached to this email/);
+ assert.match(rendered.text,/First line\nSecond & line/);
+ assert.match(renderInquiryEmail(inquiry).text,/No photos were included/);
+});
 test('invalid inquiries, missing consent and honeypot submissions are rejected',()=>{
  for(const patch of [{email:'bad'},{phone:'not a phone'},{consent:false},{description:'short'},{website:'https://spam.example'},{name:''}])assert.equal(inquiryInputSchema.safeParse({...valid,...patch}).success,false);
  assert.equal(inquiryInputSchema.safeParse(valid).success,true);
@@ -21,6 +31,9 @@ test('mutations reject cross-origin and missing-origin requests',()=>{
  assert.equal(sameOrigin(new Request('http://localhost:3000/api/inquiries',{headers:{origin:'https://attacker.example'}})),false);
  assert.equal(sameOrigin(new Request('http://localhost:3000/api/inquiries')),false);
  assert.equal(sameOrigin(new Request('http://localhost:3000/api/inquiries',{headers:{origin:'http://localhost:3000'}})),true);
+ assert.equal(sameOrigin(new Request('http://localhost:3000/api/inquiries',{headers:{origin:'http://127.0.0.1:3000',host:'127.0.0.1:3000'}})),true);
+ assert.equal(sameOrigin(new Request('http://localhost:3000/api/inquiries',{headers:{origin:'http://attacker.example',host:'127.0.0.1:3000'}})),false);
+ assert.equal(sameOrigin(new Request('http://localhost:3000/api/inquiries',{headers:{origin:'https://127.0.0.1:3000',host:'127.0.0.1:3000'}})),false);
 });
 test('rate limit allows its quota then rejects additional requests',async()=>{const key=`test-${Date.now()}`;for(let i=0;i<3;i++)assert.equal(await rateLimit(key,3,30),true);assert.equal(await rateLimit(key,3,30),false);});
 test('safe seed content has six project drafts, twenty plant drafts, no prices or invented testimonials',()=>{
