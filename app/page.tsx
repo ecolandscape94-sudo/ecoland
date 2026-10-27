@@ -11,7 +11,7 @@ export const metadata = { alternates: { canonical: '/' } };
 const coreCards = [
   { id: 'landscaping', image: '/1.webp', alt: 'Lawn, palms and stone-edged garden paths by Eco Landscapes', title: 'Landscaping & garden design', copy: 'Garden layouts, planting, lawns and outdoor finishes.' },
   { id: 'maintenance', image: '/5.webp', alt: 'Carefully maintained green lawn and shaped garden planting by Eco Landscapes', title: 'Garden care & maintenance', copy: 'Regular care to keep planted spaces healthy and neat.' },
-  { id: 'supply', image: '/2.webp', alt: 'Ornamental conifers framed by natural rocks in an Eco Landscapes garden', title: 'Plants & seedling supply', copy: 'Flowers, fruit seedlings, trees, shrubs and Paspalum turf.' }
+  { id: 'supply', image: '/2.webp', alt: 'Ornamental conifers framed by natural rocks in an Eco Landscapes garden', title: 'Plants & seedling supply', copy: 'Flowers, fruit seedlings, trees, shrubs and Paspalum (Turf grass).' }
 ];
 const finishingCards = [
   { id: 'decoration', image: '/images/service-concepts/decoration.webp', label: 'Garden decoration', title: 'The art of the finishing touch.', copy: 'Planting, colour and carefully chosen details.', alt: 'AI-created service illustration of a Kigali-style garden with flowers, palms, pebble borders and a terracotta planter' },
@@ -41,7 +41,7 @@ export default async function Home() {
         <span className="luxe-about-image-note">Thoughtful details. Beautiful outdoors.</span>
       </div>
       <div className="luxe-about-copy">
-        <div className="luxe-about-card"><p className="luxe-about-card-label">Rooted in Kigali</p><p className="luxe-about-summary">We design, plant and care for gardens across Rwanda. Our nursery supplies flowers, seedlings, trees and Paspalum turf, with lighting, decoration and paving to complete each space.</p></div>
+        <div className="luxe-about-card"><p className="luxe-about-card-label">Rooted in Kigali</p><p className="luxe-about-summary">We design, plant and care for gardens across Rwanda. Our nursery supplies flowers, seedlings, trees and Paspalum (Turf grass), with lighting, decoration and paving to complete each space.</p></div>
         <div className="luxe-about-actions"><Link href="/contact?service=Site%20visit" className="luxe-button">Let’s talk about your space <ArrowUpRight size={18}/></Link><Link href="/about" className="luxe-text-link">Our story <ArrowUpRight size={17}/></Link></div>
       </div>
     </section>
@@ -73,14 +73,14 @@ export default async function Home() {
     </section>
 
     <section className="luxe-nursery luxe-wrap" aria-labelledby="nursery-heading">
-      <div className="luxe-nursery-image"><Photo src="/9.webp" alt="Lush tropical foliage and red flowers in an Eco Landscapes garden" sizes="(max-width: 700px) 100vw, 50vw"/><span>Planting details from our work</span></div>
-      <div className="luxe-nursery-copy"><p className="luxe-eyebrow"><Sprout size={18} strokeWidth={1.4}/>Grown with purpose</p><h2 id="nursery-heading">Every beautiful<br/>garden starts with<br/><em>good roots.</em></h2><p>Our own nursery. Our own care. From flowers and tree seedlings to Paspalum turf grass, we help you find the right beginning for your space.</p><div className="luxe-nursery-types"><span>Flowers & shrubs</span><span>Ornamental & indigenous trees</span><span>Paspalum turf grass</span></div><Link href="/nursery" className="luxe-button luxe-button-white">Discover the nursery <ArrowUpRight size={19}/></Link></div>
+      <div className="luxe-nursery-image"><Photo src="/9.webp" alt="Lush tropical foliage and red flowers in an Eco Landscapes garden" sizes="(max-width: 700px) calc(100vw - 76px), (max-width: 1200px) 42vw, 520px"/><span>Planting details from our work</span></div>
+      <div className="luxe-nursery-copy"><p className="luxe-eyebrow"><Sprout size={18} strokeWidth={1.4}/>Our nursery / Grown with care</p><h2 id="nursery-heading">Every beautiful<br/>garden starts with<br/><em>good roots.</em></h2><p>Our own nursery. Our own care. From flowers and tree seedlings to Paspalum (Turf grass), we help you find the right beginning for your space.</p><div className="luxe-nursery-types"><span>Flowers & shrubs</span><span>Ornamental & indigenous trees</span><span>Paspalum (Turf grass)</span></div><Link href="/nursery" className="luxe-button">Discover the nursery <ArrowUpRight size={19}/></Link></div>
     </section>
     {!!data.testimonials.length && <section className="luxe-testimonials luxe-wrap"><p className="luxe-eyebrow">In our clients’ words</p>{data.testimonials.map(item => <blockquote key={item.id}><p>“{String(item.quote)}”</p><cite>{String(item.attribution)}</cite></blockquote>)}</section>}
 
     <section className="luxe-thoughtful-cta luxe-wrap" aria-labelledby="closing-heading">
-      <div className="luxe-thoughtful-photo"><Photo src="/images/home-engineer-call.webp" alt="A smiling Eco Landscapes engineer taking a call at a garden project in Kigali" priority sizes="(max-width: 760px) 100vw, 42vw"/><span>Here when you’re ready to grow</span></div>
-      <div className="luxe-thoughtful-copy"><p className="luxe-eyebrow">05 / A thoughtful beginning</p><p className="luxe-thoughtful-overline">There’s something beautiful ahead</p><h2 id="closing-heading">Your idea.<br/><em>Our care, every step.</em></h2><p className="luxe-thoughtful-intro">A better outdoor space begins with a simple conversation. Tell us about your space and we’ll help you explore what’s possible.</p><ol className="luxe-thoughtful-steps">{[
+      <div className="luxe-thoughtful-photo"><Photo src="/images/home-engineer-call.webp" alt="A smiling Eco Landscapes engineer taking a call at a garden project in Kigali" sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1280px) 46vw, 610px"/><span>Here when you’re ready to grow</span></div>
+      <div className="luxe-thoughtful-copy"><p className="luxe-eyebrow">05 / Let’s work together</p><p className="luxe-thoughtful-overline">A thoughtful beginning</p><h2 id="closing-heading">Your idea.<br/><em>Our care, every step.</em></h2><p className="luxe-thoughtful-intro">A better outdoor space begins with a simple conversation. Tell us about your space and we’ll help you explore what’s possible.</p><ol className="luxe-thoughtful-steps">{[
         ['01', 'Tell us about your space.', 'Share your ideas, location and what you would love your garden to become.'],
         ['02', 'Let’s explore the possibilities.', 'A conversation and site visit help us understand your space and agree the right scope.'],
         ['03', 'Watch your space come to life.', 'We bring the agreed plan to life with thoughtful planting and care.']

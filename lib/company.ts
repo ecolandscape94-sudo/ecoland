@@ -14,7 +14,7 @@ export const company = {
   profileUrl: '/documents/eco-landscapes-company-profile.pdf',
   story: 'Founded and officially registered on 15 March 2021, Eco Landscapes & Gardening Ltd is a Rwandan company specialising in soft landscaping and gardening. From our head office in Kagugu, we serve residential, commercial and institutional spaces with planting, beautification and garden maintenance.',
   background: 'Before registering the company, founder Theophile Karasira spent more than five years providing landscaping services and supplying ornamental and indigenous tree seedlings, flowers, turf grass and shrubs to residences and small institutions.',
-  nursery: 'Our own nursery brings together flowers, ornamental and indigenous tree seedlings, and shrubs. We also maintain plots of Paspalum turf grass on the outskirts of Kigali, connecting the supply of planting materials with landscape installation and ongoing care.',
+  nursery: 'Our own nursery brings together flowers, ornamental and indigenous tree seedlings, and shrubs. We also maintain plots of Paspalum (Turf grass) on the outskirts of Kigali, connecting the supply of planting materials with landscape installation and ongoing care.',
   mission: 'To provide affordable, high-quality landscaping and gardening services to our clients in Rwanda and beyond.',
   vision: 'To transform outdoor spaces into thriving, sustainable living ecosystems that enrich biodiversity, beautify communities, and connect people with nature throughout the year.'
 };

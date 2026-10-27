@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Building2, GraduationCap, HeartPulse, Leaf, Pause, Play, Sprout } from 'lucide-react';
+import { ArrowUpRight, Building2, GraduationCap, HeartPulse, Leaf, Pause, Play, Sprout } from 'lucide-react';
 import { profileProjects } from '@/lib/company';
 
 const partners = [1, 2, 0, 3, 4, 12].map(index => profileProjects[index]);
@@ -39,9 +39,9 @@ export function HomePartners() {
 
     <div className="luxe-wrap luxe-partners-reference-wrap">
       <Link href="/projects#directory-heading" className="luxe-partners-reference-cta">
-        <span className="luxe-partners-reference-mark"><ArrowDownRight size={18} strokeWidth={1.6}/></span>
-        <span><small>See the places we’ve grown together</small><strong>Explore our references</strong></span>
-        <ArrowUpRight className="luxe-partners-reference-arrow" size={19} strokeWidth={1.7}/>
+        <span className="luxe-partners-reference-mark"><Leaf size={22} strokeWidth={1.5} aria-hidden="true"/></span>
+        <span className="luxe-partners-reference-copy"><small>Discover the places we’ve helped grow</small><strong>Explore our references</strong></span>
+        <span className="luxe-partners-reference-arrow"><ArrowUpRight size={21} strokeWidth={1.8} aria-hidden="true"/></span>
       </Link>
     </div>
 

@@ -57,23 +57,24 @@
 .journal-opening-art>span { position: absolute; left: -42px; bottom: 30px; display: flex; align-items: center; gap: 8px; padding: 13px 16px; border-radius: 30px; background: #edc928; color: #173b29; font-size: 11px; font-weight: 600; }
 
 @media (max-width: 700px) {
-  .service-opening,.nursery-opening,.work-opening,.journal-opening { margin-top: 20px; margin-bottom: 55px; }
-  .service-opening h1,.nursery-opening h1,.work-opening h1 { font-size: clamp(42px,10vw,60px); }
+  .service-opening,.nursery-opening,.work-opening,.journal-opening { margin-top: 16px; margin-bottom: 44px; }
+  .service-opening h1,.nursery-opening h1,.work-opening h1 { font-size: clamp(36px,9.5vw,56px); }
   .opening-kicker { flex-wrap: wrap; gap: 8px 14px; font-size: 10px; }
+  .opening-link { min-height: 44px; align-items: center; }
   .service-opening { grid-template-columns: 1fr; }
-  .service-opening-copy { padding: 34px 25px 32px; }
+  .service-opening-copy { padding: 30px 22px 28px; }
   .service-opening-copy h1,.nursery-opening-copy h1 { margin-top: 23px; }
   .service-opening-copy>p:not(.opening-kicker),.nursery-opening-copy>p:not(.opening-kicker),.work-opening-copy>p:not(.opening-kicker) { font-size: 16px; margin: 20px 0 23px; }
   .service-opening-tags { margin-top: 28px; }
-  .service-opening-visual { min-height: 320px; }
+  .service-opening-visual { min-height: clamp(240px,72vw,320px); }
   .service-opening-label { right: 16px; bottom: 16px; padding: 17px 20px; }
   .service-opening-label strong { font-size: 20px; }
-  .work-opening,.work-opening-copy { min-height: 530px; }
+  .work-opening,.work-opening-copy { min-height: 470px; }
   .work-opening-copy { padding: 32px 26px 68px; }
   .work-opening-shade { background: linear-gradient(90deg,#0b281dc9,#0b281d66),linear-gradient(0deg,#0b281da8,transparent 65%); }
   .work-opening-caption { right: 22px; bottom: 20px; font-size: 10px; }
   .nursery-opening { grid-template-columns: 1fr; gap: 28px; padding: 0; }
-  .nursery-opening-visual { min-height: 365px; margin: 0 18px; }
+  .nursery-opening-visual { min-height: clamp(290px,82vw,365px); margin: 0 18px; }
   .nursery-opening-copy { padding: 0 2px; }
   .nursery-opening-note { margin-top: 30px; }
   .journal-opening-top { font-size: 9px; letter-spacing: .08em; }
