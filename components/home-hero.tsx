@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { getImageProps } from 'next/image';
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Leaf, Pause, Play } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Leaf, Pause, Play } from 'lucide-react';
 
 const slides = [
   { src: '/hero3.webp', mobileSrc: '/1x.webp', label: 'Your garden. Expertly cared for.', theme: 'featured', alt: 'A gardener carefully measuring a curved planting border beside a green lawn overlooking Kigali' },
@@ -74,7 +74,6 @@ export function HomeHero() {
     </div>
     <div className="luxe-hero-shade"/>
     <div className="luxe-hero-content">
-      <p className="luxe-welcome"><span/>Rooted in Rwanda. Made for your outdoors.</p>
       <h1 id="welcome-heading"><span className="luxe-hero-brand"><Leaf size={17} strokeWidth={1.5} aria-hidden="true"/>ECO</span><span className="luxe-hero-title">Landscaping</span><br/><em><span className="luxe-hero-amp">&</span> Gardening<span className="luxe-hero-dot">.</span></em></h1>
       <p className="luxe-hero-description">From the first planting to the finishing touches,<br/>we bring your outdoor space to life.</p>
       <div className="luxe-hero-actions">
@@ -83,14 +82,9 @@ export function HomeHero() {
       </div>
     </div>
     <div className="luxe-hero-bottom">
-      <a href="#our-roots"><ArrowDown size={16}/>A little more about us</a>
       <div className="luxe-slideshow-controls" role="group" aria-label="Slideshow controls">
-        <div className="luxe-slide-caption"><span>{slides[active].label}</span><div className="luxe-slide-progress" aria-label={`Slide ${active + 1} of ${slides.length}`}>
-          {slides.map((slide, index) => <button key={slide.src} type="button" className={active === index ? 'is-active' : ''} onClick={() => selectSlide(index)} aria-label={`Show slide ${index + 1}: ${slide.label}`} aria-current={active === index ? 'true' : undefined}><span/></button>)}
-        </div></div>
         <button type="button" className="luxe-slide-control luxe-slide-pause" data-rotation-control aria-label={paused || reducedMotion ? 'Play slideshow' : 'Pause slideshow'} onClick={() => { setPaused(playing); setReducedMotion(false); }}>{playing ? <Pause size={14}/> : <Play size={14}/>}</button>
         <button type="button" className="luxe-slide-control" aria-label="Previous slide" onClick={() => selectSlide(active - 1)}><ArrowLeft size={18}/></button>
-        <span className="luxe-slide-count" aria-hidden="true">{String(active + 1).padStart(2, '0')}<i/>{String(slides.length).padStart(2, '0')}</span>
         <button type="button" className="luxe-slide-control" aria-label="Next slide" onClick={() => selectSlide(active + 1)}><ArrowRight size={18}/></button>
       </div>
     </div>

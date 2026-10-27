@@ -47,13 +47,13 @@ export default async function Home() {
     </section>
 
     <section className="luxe-services luxe-wrap luxe-section" aria-labelledby="services-heading">
-      <div className="luxe-section-head"><div><p className="luxe-eyebrow">02 / What we do</p><h2 id="services-heading">From the first idea<br/>to the <em>last detail.</em></h2></div><Link href="/services" className="luxe-text-link">Explore our services <ArrowUpRight size={18}/></Link></div>
+      <div className="luxe-section-head"><div><p className="luxe-eyebrow">02 / What we do</p><h2 id="services-heading">From the first idea<br/>to the <em>last detail.</em></h2></div></div>
       <div className="luxe-service-grid">{coreCards.map((card, index) => <Link href={serviceUrl(card.id)} className={`luxe-service-card${index > 1 ? ' luxe-service-card-extra' : ''}`} key={card.id}>
         <div className="luxe-service-image"><Photo src={card.image} alt={card.alt} sizes="(max-width: 700px) 100vw, 33vw"/><span className="luxe-card-number">0{index + 1}</span><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div>
         <div className="luxe-service-body"><h3>{data.services.find(service => service.id === card.id)?.title || card.title}</h3><p>{card.copy}</p></div>
       </Link>)}</div>
-      <div className="luxe-services-extra"><span>And a little more green.</span><Link href={serviceUrl('installation')}>Greening & beautification <ArrowUpRight size={16}/></Link><Link href={serviceUrl('greening')}>Tree planting <ArrowUpRight size={16}/></Link></div>
       <Link href="/services" className="luxe-mobile-projects-link"><span className="luxe-mobile-projects-copy"><small>Our services</small><strong>Explore all services</strong></span><ArrowUpRight size={19}/></Link>
+      <div className="luxe-services-extra"><span>And a little more green.</span><Link href={serviceUrl('installation')}>Greening & beautification <ArrowUpRight size={16}/></Link><Link href={serviceUrl('greening')}>Tree planting <ArrowUpRight size={16}/></Link></div>
     </section>
 
     <section className="luxe-work luxe-section" aria-labelledby="work-heading"><div className="luxe-wrap">

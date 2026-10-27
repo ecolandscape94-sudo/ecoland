@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight, Leaf } from 'lucide-react';
-import { Breadcrumb, PageIntro, Photo } from '@/components/ui';
+import { Breadcrumb, Photo } from '@/components/ui';
 import { getBlogPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
   return <>
     <Breadcrumb items={[{ label: 'Journal' }]} />
-    <PageIntro eyebrow="Notes from the garden" title={<>The <em>journal.</em></>} description="Ideas, practical guidance and news from our team, nursery and work across Rwanda." />
-    <section className="blog-collection container" aria-label="Published articles">
+    <header className="journal-opening container"><div className="journal-opening-top"><span>Eco Landscapes & Gardening</span><span>Notes from Rwanda</span></div><div className="journal-opening-main"><div><p className="opening-kicker">Ideas for greener living</p><h1>The<br/><em>journal.</em></h1><p className="journal-opening-description">A little inspiration, practical advice and stories from the spaces we grow.</p><a href="#journal-stories" className="opening-link">Explore the stories <ArrowUpRight size={19}/></a></div><div className="journal-opening-art"><Photo src="/9.webp" alt="Lush tropical foliage and flowers in an Eco Landscapes garden" priority sizes="(max-width: 700px) 50vw, 28vw"/><span><Leaf size={17}/> Notes from the garden</span></div></div></header>
+    <section id="journal-stories" className="blog-collection container" aria-label="Published articles">
       {posts.length ? <div className="blog-grid">{posts.map((post) => <article className="blog-card" key={post.id}>
         <Link className="blog-card-image" href={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
           {post.hasImage ? <Photo src={`/api/blog/image/${post.id}`} alt={post.title} sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw" /> : <span className="blog-image-placeholder"><Leaf size={38} strokeWidth={1} /></span>}

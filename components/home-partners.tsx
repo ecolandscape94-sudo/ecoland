@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ArrowUpRight, Building2, GraduationCap, HeartPulse, Leaf, Pause, Play, Sprout } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Building2, GraduationCap, HeartPulse, Leaf, Pause, Play, Sprout } from 'lucide-react';
 import { profileProjects } from '@/lib/company';
 
 const partners = [1, 2, 0, 3, 4, 12].map(index => profileProjects[index]);
@@ -18,11 +18,10 @@ export function HomePartners() {
       </div>
       <div className="luxe-partners-intro">
         <p>From learning spaces to communities, a shared appreciation for beautifully cared-for outdoors.</p>
-        <Link href="/projects#directory-heading" className="luxe-text-link">Explore our references <ArrowUpRight size={17}/></Link>
       </div>
     </div>
 
-    <div id="partners-slideshow" className={`luxe-partners-window${paused ? ' is-paused' : ''}`} role="region" aria-label="Partner cards sliding from left to right" tabIndex={0}>
+    <div id="partners-slideshow" className={`luxe-partners-window${paused ? ' is-paused' : ''}`} role="region" aria-label="Partner cards sliding from right to left" tabIndex={0}>
       <div className="luxe-partners-track">
         {[false, true].map(duplicate => <div className="luxe-partners-group" key={String(duplicate)} aria-hidden={duplicate || undefined}>
           {partners.map(partner => {
@@ -36,6 +35,14 @@ export function HomePartners() {
           })}
         </div>)}
       </div>
+    </div>
+
+    <div className="luxe-wrap luxe-partners-reference-wrap">
+      <Link href="/projects#directory-heading" className="luxe-partners-reference-cta">
+        <span className="luxe-partners-reference-mark"><ArrowDownRight size={18} strokeWidth={1.6}/></span>
+        <span><small>See the places we’ve grown together</small><strong>Explore our references</strong></span>
+        <ArrowUpRight className="luxe-partners-reference-arrow" size={19} strokeWidth={1.7}/>
+      </Link>
     </div>
 
     <div className="luxe-wrap luxe-partners-bottom">
