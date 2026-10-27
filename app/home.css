@@ -464,6 +464,7 @@ a:hover .luxe-circle-arrow { background: var(--luxe-green); color: white; }
   .luxe-home .luxe-hero-description { margin-top: 28px; }
   .luxe-hero-actions { gap: 12px; }
   .luxe-home .luxe-hero .luxe-hero-photo img { object-position: center center; transform: none; }
+  .luxe-hero-content { display: flex; flex-direction: column; justify-content: center; min-height: clamp(560px,82svh,720px); padding-top: 70px; padding-bottom: 110px; }
 }
 
 /* Balanced layouts for larger screens. */
