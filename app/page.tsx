@@ -57,11 +57,12 @@ export default async function Home() {
     </section>
 
     <section className="luxe-work luxe-section" aria-labelledby="work-heading"><div className="luxe-wrap">
-      <div className="luxe-section-head"><div><p className="luxe-eyebrow">03 / A closer look</p><h2 id="work-heading">Real spaces.<br/><em>Thoughtfully transformed.</em></h2></div><Link href="/projects#work-gallery-heading" className="luxe-text-link">Step into our work <ArrowUpRight size={18}/></Link></div>
+      <div className="luxe-section-head"><div><p className="luxe-eyebrow">03 / A closer look</p><h2 id="work-heading">Real spaces.<br/><em>Thoughtfully transformed.</em></h2></div></div>
       <div className="luxe-work-grid">
         <Link href="/projects#work-gallery-heading" className="luxe-work-card"><div className="luxe-work-image"><Photo src="/6.png" alt="An Eco Landscapes garden with a sweeping lawn and curved flower borders" sizes="(max-width: 700px) 100vw, 56vw"/><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div><div className="luxe-work-caption"><div><span>Garden design & beautification</span><h3>Nature, beautifully considered.</h3></div><span className="luxe-work-index">01</span></div></Link>
         <Link href="/projects#work-gallery-heading" className="luxe-work-card"><div className="luxe-work-image"><Photo src="/7.webp" alt="An entrance framed by ornamental conifers and rock planting by Eco Landscapes" sizes="(max-width: 700px) 100vw, 44vw"/><span className="luxe-circle-arrow"><ArrowUpRight size={22}/></span></div><div className="luxe-work-caption"><div><span>Planting & outdoor details</span><h3>A welcome worth coming home to.</h3></div><span className="luxe-work-index">02</span></div></Link>
       </div>
+      <div className="luxe-work-action"><Link href="/projects#work-gallery-heading" className="luxe-work-cta">Step into our work <span><ArrowUpRight size={19}/></span></Link></div>
     </div></section>
 
     <HomePartners/>

@@ -1,16 +1,24 @@
 'use client';
 
 import Link from 'next/link';
+import { getImageProps } from 'next/image';
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Leaf, Pause, Play } from 'lucide-react';
-import { Photo } from './ui';
 
 const slides = [
-  { src: '/hero3.webp', label: 'Your garden. Expertly cared for.', theme: 'featured', alt: 'A gardener carefully measuring a curved planting border beside a green lawn overlooking Kigali' },
-  { src: '/hero2.webp', label: 'Beautiful from every angle.', theme: 'dark', alt: 'A contemporary home framed by tropical planting, sculpted hedges and warm garden lighting' },
-  { src: '/hero.webp', label: 'Room to reconnect.', theme: 'dark', alt: 'A sunlit landscaped garden with a lush lawn, flowering borders and a terrace overlooking the hills' }
+  { src: '/hero3.webp', mobileSrc: '/1x.webp', label: 'Your garden. Expertly cared for.', theme: 'featured', alt: 'A gardener carefully measuring a curved planting border beside a green lawn overlooking Kigali' },
+  { src: '/hero2.webp', mobileSrc: '/2x.webp', label: 'Beautiful from every angle.', theme: 'dark', alt: 'A contemporary home framed by a landscaped garden overlooking Kigali' },
+  { src: '/hero.webp', mobileSrc: '/3x.webp', label: 'Room to reconnect.', theme: 'dark', alt: 'A landscaped garden beside a home overlooking the Kigali hills' }
 ];
 const slideDuration = 6500;
+
+function HeroPhoto({ src, mobileSrc, alt, first }: { src: string; mobileSrc: string; alt: string; first: boolean }) {
+  const common = { alt, fill: true, sizes: '100vw', quality: 75, loading: 'eager' as const, fetchPriority: first ? 'high' as const : 'auto' as const };
+  const { props: desktop } = getImageProps({ ...common, src });
+  const { props: { srcSet: mobileSrcSet } } = getImageProps({ ...common, src: mobileSrc });
+
+  return <div className="photo luxe-hero-photo"><picture><source media="(max-width: 700px)" srcSet={mobileSrcSet} sizes="100vw"/><img {...desktop}/></picture></div>;
+}
 
 export function HomeHero() {
   const [active, setActive] = useState(0);
@@ -61,7 +69,7 @@ export function HomeHero() {
         aria-label={`${index + 1} of ${slides.length}: ${slide.label}`}
         aria-hidden={active !== index}
       >
-        <Photo src={slide.src} alt={slide.alt} className="luxe-hero-photo" priority={index === 0} sizes="100vw" quality={75}/>
+        <HeroPhoto src={slide.src} mobileSrc={slide.mobileSrc} alt={slide.alt} first={index === 0}/>
       </div>)}
     </div>
     <div className="luxe-hero-shade"/>
@@ -70,8 +78,8 @@ export function HomeHero() {
       <h1 id="welcome-heading"><span className="luxe-hero-brand"><Leaf size={17} strokeWidth={1.5} aria-hidden="true"/>ECO</span><span className="luxe-hero-title">Landscaping</span><br/><em><span className="luxe-hero-amp">&</span> Gardening<span className="luxe-hero-dot">.</span></em></h1>
       <p className="luxe-hero-description">From the first planting to the finishing touches,<br/>we bring your outdoor space to life.</p>
       <div className="luxe-hero-actions">
-        <Link href="/contact?service=Site%20visit" className="luxe-button luxe-hero-cta">Book a site visit <span><ArrowUpRight size={20}/></span></Link>
-        <Link href="/services" className="luxe-hero-services">Explore our services <ArrowUpRight size={18}/></Link>
+        <Link href="/services" className="luxe-button luxe-hero-cta">Our services <span><ArrowUpRight size={20}/></span></Link>
+        <Link href="/contact" className="luxe-button luxe-hero-cta luxe-hero-contact">Contact us <span><ArrowUpRight size={20}/></span></Link>
       </div>
     </div>
     <div className="luxe-hero-bottom">

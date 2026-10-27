@@ -173,3 +173,7 @@ h2 { font-size: clamp(44px,4.8vw,68px); }
 .reference-card-footer { margin-top: auto; }
 .profile-directory .directory-heading h2 { font-size: clamp(44px,5vw,68px); }
 @media(max-width:700px) { .profile-directory .reference-grid { grid-template-columns: 1fr; gap: 28px; }.reference-card-copy { padding: 28px 25px; }.reference-art { height: 180px; }.reference-number { font-size: 125px; left: 23px; }.reference-art-caption { left: 27px; font-size: 11px; }.reference-botanical { right: 20px; width: 180px; height: 180px; }.profile-directory .reference-item h3 { min-height: 0; font-size: 35px; }.reference-delivery li { font-size: 18px; } }
+@media (max-width: 700px) {
+  .footer .brand-footer .brand-wordmark strong,
+  .footer .footer-grid h3 { color: #edc928; }
+}
