@@ -177,3 +177,32 @@ h2 { font-size: clamp(44px,4.8vw,68px); }
   .footer .brand-footer .brand-wordmark strong,
   .footer .footer-grid h3 { color: #edc928; }
 }
+
+/* Nursery starting points */
+.plant-category-heading { margin-top: 64px; color: #163c26; font-size: clamp(38px,4vw,54px); }
+.plant-categories { counter-reset: plant-category; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; margin-bottom: 70px; }
+.plant-categories>div { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 300px; padding: 26px; overflow: hidden; counter-increment: plant-category; border: 1px solid #d9e7d4; border-radius: 16px; background: linear-gradient(145deg,#fbfdf9,#edf5e9); box-shadow: 0 10px 24px #163c260a; transition: transform .25s,box-shadow .25s; }
+.plant-categories>div:nth-child(3) { background: linear-gradient(145deg,#fffdf5,#f5f2e5); border-color: #e8e4d1; }
+.plant-categories>div:first-child { background: linear-gradient(145deg,#20593b,#103b29); border-color: #20593b; }
+.plant-categories>div::after { position: absolute; top: 27px; right: 25px; content: '0' counter(plant-category); color: #8ca587; font-size: 12px; letter-spacing: .1em; }
+.plant-categories>div:first-child::after { color: #d8dfba; }
+.plant-categories>div>svg { flex: 0 0 54px; width: 54px; height: 54px; padding: 12px; border: 1px solid #cce0c6; border-radius: 50%; color: #007020; background: #fff; }
+.plant-categories>div:first-child>svg { color: #f3d34f; border-color: #e8cd5b80; background: #ffffff12; }
+.plant-categories h3 { color: #163c26; font-size: 27px; line-height: 1.12; margin: 25px 0 12px; }
+.plant-categories p { color: #536b55; font-size: 15px; line-height: 1.6; margin: 0 0 22px; }
+.plant-categories>div:first-child h3 { color: #fff; }
+.plant-categories>div:first-child p { color: #dce9d9; }
+.plant-categories .text-link { align-self: flex-start; min-height: 44px; margin-top: auto !important; padding: 8px 0; border-color: #a9c5a4; color: #007020; font-size: 14px; }
+.plant-categories>div:first-child .text-link { color: #f3d34f; border-color: #f3d34f80; }
+.plant-categories>div:hover,.plant-categories>div:focus-within { transform: translateY(-4px); box-shadow: 0 16px 30px #163c2618; }
+@media(max-width:1000px) { .plant-categories { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) {
+  .plant-category-heading { margin-top: 48px; font-size: clamp(35px,9vw,43px); }
+  .plant-categories { grid-template-columns: 1fr; gap: 14px; margin-bottom: 50px; }
+  .plant-categories>div { min-height: 0; padding: 22px; }
+  .plant-categories>div::after { top: 24px; right: 22px; }
+  .plant-categories>div>svg { flex-basis: 46px; width: 46px; height: 46px; padding: 10px; }
+  .plant-categories h3 { margin-top: 18px; font-size: 25px; }
+  .plant-categories p { font-size: 15px; margin-bottom: 14px; }
+}
+@media(prefers-reduced-motion:reduce) { .plant-categories>div { transition: none; }.plant-categories>div:hover,.plant-categories>div:focus-within { transform: none; } }
